@@ -1,0 +1,14 @@
+//tjrs- permet de comparer ma branche a celle du server
+git status
+// pour ajouter
+git add "liste des fichiers à ajouter"
+// apres les modifs pour les valider
+git commit -m"le message de commit"
+// réccuperaion des modifs faites sur le server
+git pull 
+// pour envoyer les donnes
+git push
+
+//pour supprimer du git pour les avoir en local
+git rm --cached liste des fichier à cacher
+

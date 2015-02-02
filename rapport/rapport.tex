@@ -1,0 +1,282 @@
+\documentclass[11pt,a4paper,titlepage, oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} 	% images
+\usepackage{listings}
+\usepackage{url}
+\usepackage{times}
+\usepackage[T1]{fontenc}      % caracteres francais
+\usepackage{xcolor}		%couleurs
+\usepackage[frenchb]{babel}  % langue
+\usepackage{geometry}         % marges
+\usepackage{verbatim}  
+\usepackage{moreverb}       % texte preformate
+\usepackage{array}
+%\usepackage[linktocpage,colorlinks=true]{hyperref}
+\usepackage[final]{pdfpages}
+
+%Définition de l'apparence des listings
+\lstset{
+	frame=single,
+	breaklines=true,
+	basicstyle=\small,
+	mathescape=false
+}
+
+
+%Le titre de projet
+\title{Projet 2A STI : Supervision et audit de la sécurité système dans un réseau}
+
+%Votre nom
+\author{Aymeric Berquin \and Fayçal-Anoar Cherkaoui}
+
+%Par défaut, Latex utilise la date du jour
+%Pour supprimer la date ou la changer:
+\date{1 Janvier 2015}
+\geometry{top=3cm, bottom=3.5cm, left=3cm , right=2.5cm}
+
+
+\begin{document}
+%Créer la page de titre
+\begin{titlepage}
+ \thispagestyle{empty}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.75]{images/logo.png}
+\end{figure}
+\vspace{0,5cm}
+\begin{center} 
+\Huge{\textbf{{\color{red}}}Projet 2A STI : Supervision et audit de la sécurité système dans un réseau}
+\\
+\vspace{1.5 cm}
+
+\vspace{1cm}
+\large{Diplôme d'Ingénieur, 4e année}
+\\
+\vspace{1cm}
+\large{Aymeric Berquin \\ \& \\ Fayçal-Anoar Cherkaoui}
+\vspace{1 cm}
+\paragraph{}
+	\Large{Date de rendu de rapport : 01/01/2015}
+	\\
+	
+\vspace{1.5 cm}
+\end{center} 
+\end{titlepage} 
+\normalsize
+\newpage
+\section*{\textbf{Remerciement}}
+\thispagestyle{empty}
+	\paragraph{}
+	Nous remercions Monsieur Briffaut pour le temps et les ressources qu'il nous a consacré. Nous le remercions aussi pour toutes les connaissances qu'il nous a apportés.
+
+\newpage
+\section*{{\color{red}Introduction}}
+	\paragraph{toto}
+		presentation du projet
+		
+		
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\listoffigures  % table des figures
+
+\newpage
+\pagenumbering{arabic} \setcounter{page}{1}
+\section{{\color{red} Machines Virtuelles}}
+\subsection{{\color{blue}{Installation du serveur}}}
+	\paragraph{}
+		Installation d'un debian classique.
+		
+\subsection{{\color{blue}{Installation du client}}}
+	\paragraph{}
+		Nous avons choisi d'utiliser un Xubuntu 14.04.
+		Nom complet : user
+		Nom d'utilisateur : user
+		Mot de passe : resu
+		Hostname : client1
+		Nous n'avons rencontré aucun problème particulier.
+\newpage
+\section{{\color{red} Git}}
+	\paragraph{}
+		Nous avons décidé d'utiliser un serveur git pour gérer les sources.
+	\paragraph{}
+		
+\newpage
+\section{{\color{red} BDD}}
+	\paragraph{}
+		%Nous avons choisi d'utiliser phpmyadmin.
+\newpage
+\section{{\color{red} Client/Serveur}}
+
+\newpage
+\section{{\color{red} Scans}}
+
+\newpage
+\section{{\color{red} Interface WEB}}
+
+\newpage
+\section{{\color{red} Script }}
+	\paragraph{Permissions}
+		Bien que la majorité de nos scripts puissent s'exécuter avec les permissions d'un utilisateur, certain d'entre eux nécessites les droits d'administrateur.\\
+	\subsection{{\color{blue}En Tant qu'utilisateur}}
+		\begin{tabular}{|l|p{12cm}|}
+			\hline
+				\textbf{N°}&\textbf{Résultats}\\
+			\hline
+				1 & Hostname, Interfaces réseaux, nom de la distribution, version de la distribution, version du noyau, table de routage.\\
+			\hline
+				2 & Espace des partitions montées.\\
+			\hline
+				3 & Affiche les connections internet actives.\\
+			\hline
+				4 & Processus actif.\\
+			\hline
+				5 & Variables d'environnement.\\
+			\hline
+				6 & Informations CPU, Interruptions, Mémoire utilisée, Fichier\(s\) Swap\(s\), version du noyau,systèmes de fichiers montés, périphériques CPU, périphériques usb.\\
+			\hline
+				7 & Affiche les processus en cours dans une arborescence qui commence à la racine.\\
+			\hline
+				8 & Récupération de tous les fichiers d'extension ".log".\\
+			\hline
+				9 & Table de routage.\\
+			\hline
+				10 & interfaces réseaux.\\
+			\hline
+				11 & User loggé, heure du dernier démarrage, affiche les processus morts, runlevel courant.\\
+			\hline
+				13 & Liste des utilisateurs.\\
+			\hline
+				14 & Affiche l'état de la mémoire de la partition courante.\\
+			\hline
+				15 & Affichage de la derniére connexion local.\\
+			\hline
+				16 & Affiche les règles iptables pour filter, nat et mangle .\\
+			\hline
+				17 & Vérification de l'intérité de /bin, /usr/bin, /sbin, /usr/sbin.\\
+			\hline
+		\end{tabular}
+			
+	\subsection{{\color{blue}En Tant qu'administrateur}}
+	
+\newpage
+\section{{\color{red}Conclusion}}
+
+\newpage
+\section{{\color{red}Évolution temporelle}}
+\begin{tabular}{|l|p{12cm}|}
+	\hline
+		
+		\textbf{DATE}& \textbf{OBJET} \\
+		
+	\hline
+		10/09/14 & Présentation du projet et formation du binôme\\
+	\hline
+		17/09/14 & Début rapport. Étude du sujet. Installation VM Client\\
+	\hline
+		24/09/14 & Début client/server\\
+	\hline
+		01/10/14 & Rédaction des Makefiles de base\\
+	\hline
+		08/10/14 & Correction erreur client/serveur\\
+	\hline
+		07/11/14 & Fonction client exécution de script\\
+	\hline
+		10/11/14 & Premier scan. Création fonction de log client\\
+	\hline
+		19/11/14 & Autres script\\
+	\hline
+		03/12/14 & script mémoire + pattern script\\
+	\hline
+		08/12/14 & Scripts, ajout de la description des scripts au rapport\\
+	\hline
+		
+		
+
+\end{tabular}
+		
+
+
+
+\newpage
+\section{{\color{red}Bibliographie}}
+%\thispagestyle{empty}
+	\subsection*{{\color{blue}C}}
+		
+	\subsection*{{\color{blue}SDL}}
+		\paragraph{}
+			
+			
+	\subsection*{{\color{blue}LaTeX}}
+		\paragraph{}
+	
+%Une liste:
+%
+%\begin{itemize}
+%\item un item
+%\item un autre item
+%\end{itemize}
+%
+%~\\
+%
+%Une énumération:
+%\begin{enumerate}
+%\item le premier item
+%\item le deuxième
+%\end{enumerate}
+%
+%
+%\subsection{Installation du client}
+%
+%La figure~\ref{fig:tux} représente Tux, la mascotte de Linux.
+%
+%\begin{figure}[h!]
+%	\centering
+%	\includegraphics[scale=0.3]{images/tux.png}
+%	\caption{Tux} 
+%	\label{fig:tux}
+%\end{figure}
+%
+%\subsection{Insérer du code}
+%
+%Le listing~\ref{list:helloWorld} donne un exemple de programme C.    
+%    
+%\begin{lstlisting}[caption=Hello World en C, label=list:helloWorld]
+%#include <stdio.h>
+%
+%int main(int argc, char *argv[])
+%{
+%  printf("%s","Hello World!");
+%  return 0;
+%}
+%\end{lstlisting}
+%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\newpage 
+%\section{Divers}
+%
+%\subsection{Compilation}
+%
+%Installer Latex sur Ubuntu 13.04: %TODO installation sur la machine hôte
+%\begin{lstlisting}
+%$ sudo apt-get install texlive
+%\end{lstlisting}
+%
+%Compiler le fichier .tex:
+%\begin{lstlisting}
+%$ pdflatex <FileName>.tex
+%\end{lstlisting}
+%
+%Vous aurez besoin de compiler à deux reprises pour obtenir la table des matières et les références. 
+%
+%\subsection{Quelques liens utiles}
+%
+%\begin{itemize}
+%\item \url{https://fr.wikibooks.org/wiki/LaTeX}
+%\item \url{http://tobi.oetiker.ch/lshort/lshort.pdf}
+%\end{itemize}
+
+
+\end{document}
