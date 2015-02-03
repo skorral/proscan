@@ -1,6 +1,9 @@
 \documentclass[11pt,a4paper,titlepage, oneside]{article}
-\usepackage[utf8]{inputenc}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
 \usepackage{graphicx} 	% images
+\usepackage{wrapfig}
 \usepackage{listings}
 \usepackage{url}
 \usepackage{times}
@@ -24,7 +27,7 @@
 
 
 %Le titre de projet
-\title{Projet 2A STI : Supervision et audit de la sécurité système dans un réseau}
+\title{Projet 4A STI : Supervision et audit de la sécurité système dans un réseau}
 
 %Votre nom
 \author{Aymeric Berquin \and Fayçal-Anoar Cherkaoui}
@@ -41,7 +44,7 @@
  \thispagestyle{empty}
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.75]{images/logo.png}
+  \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{/home/af/Downloads/proscan/images/logo.png}
 \end{figure}
 \vspace{0,5cm}
 \begin{center} 
@@ -82,25 +85,328 @@
 
 \newpage
 \pagenumbering{arabic} \setcounter{page}{1}
-\section{{\color{red} Machines Virtuelles}}
-\subsection{{\color{blue}{Installation du serveur}}}
+\section{{\color{red}Installation des machines virtuelles}}
+\subsection{{\color{blue}{Installation du serveur Debian}}}
 	\paragraph{}
-		Installation d'un debian classique.
+		Installation d'un debian classique sans interface graphique, qui jouera le rôle du maitre.
 		
-\subsection{{\color{blue}{Installation du client}}}
-	\paragraph{}
-		Nous avons choisi d'utiliser un Xubuntu 14.04.
+		On récupère l'iso sepuis le site officiel: http://www.ubuntu.com/download/desktop.
+
+		On configure les caractéristiques suivantes:
+		\begin{itemize}
+                        \item{1GB en RAM}
+                        \item{1 processeur}
+                        \item{20GB en dique dur}
+                \end{itemize}
+ 		\paragraph{}
+		On choisi une installation sans interface graphique.
+		 \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian1.png}
+                        \caption{choix de linstallation}
+                \end{figure}
+		
+
+	\newpage		
+		\begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian2.png}
+                        \caption{choix de la langue}
+                \end{figure}
+	\newpage
+		\begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian3.png}
+                        \caption{choix de la localisation géographique}
+                \end{figure}
+
+
+	\newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian4.png}
+                        \caption{Nom de l'hôte: hostname}
+                \end{figure}
+
+	 \newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian5.png}
+                        \caption{Nom du domaine de la machine}
+                \end{figure}
+
+	 \newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian6.png}
+                        \caption{Définition du mot de passe du compte root}
+                \end{figure}
+
+
+	 \newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian7.png}
+                        \caption{Confirmation du mot de passe}
+                \end{figure}
+
+	 \newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian8.png}
+                        \caption{Création d'un compte utilisateur}
+                \end{figure}
+
+	 \newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian9.png}
+                        \caption{Choix du login du compte utilistauer précédemment créé}
+                \end{figure}
+
+	 \newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian10.png}
+                        \caption{Définition du mot de passe pour le compte utilisateur}
+                \end{figure}
+
+	
+	\newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian11.png}
+                        \caption{confirmation du mot de passe pour le compte utilisateur}
+                \end{figure}
+
+	 \newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian12.png}
+                        \caption{Partitionnement du disque}
+                \end{figure}
+
+	 \newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian13.png}
+                        \caption{Partitionnement du disque}
+                \end{figure}
+
+
+		 \newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian14.png}
+                        \caption{Partitionnement du disque}
+                \end{figure}
+
+	\newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian15.png}
+                        \caption{Partitionnement du disque}
+                \end{figure}
+
+	\newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian16.png}
+                        \caption{Partitionnement du disque}
+                \end{figure}
+
+	\newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian17.png}
+                        \caption{Configuration de l'outil de gestion du paquet}
+                \end{figure}
+
+	\newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian18.png}
+                        \caption{Configuration de l'outil de gestion du paquet}
+                \end{figure}
+
+	\newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian19.png}
+                        \caption{configuration de l'outil de gestion du paquet}
+                \end{figure}
+
+	\newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian20.png}
+                        \caption{Sélection des logiciels}
+                \end{figure}
+
+	\newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian21.png}
+                        \caption{Installation du programme de démarrage GRUB}
+                \end{figure}
+
+	\newpage
+                \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/debian22.png}
+                        \caption{Fin de l'installation}
+                \end{figure}
+\subsection{{\color{blue}{Installation du client ubuntu}}}
+\paragraph{}
+	        On aura besoin d'installer deux machines virtuelles avec la dernière distribution Ubuntu stable. Elles auront pour nom client1 et client2.
+
+		Nous avons choisi d'utiliser un Xubuntu 14.04. A récuperer sur le site officiel: http://www.ubuntu.com/download/desktop
+		
 		Nom complet : user
+			
 		Nom d'utilisateur : user
+		
 		Mot de passe : resu
+		
 		Hostname : client1
-		Nous n'avons rencontré aucun problème particulier.
+		
+		\begin{figure}[h]
+  			\centering
+  			\includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/vmwareworkstationubuntu.png}
+			\caption{interface de la machine virtuelle VMware}
+		\end{figure}
+		Elle aura pour configuration:
+		\begin{itemize}
+                        \item{1GB en RAM}
+                        \item{1 processeur}
+                        \item{20GB en dique dur}
+                \end{itemize}
+		On éditera la nouvelle machine virtuelle VMware dans laquelle en spécifiant le chemin de l'iso téléchargé.
+		
+		On démarre la machine virtuelle.
+	\newpage
+		\begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/demarrerISO.png}
+                        \caption{Choix de la langue d'installation}
+                \end{figure}
+		Une nouvelle fenêtre s'affiche, on clique sur suivant.
+		 \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/demarrerISO2.png}
+                        \caption{Prérequis pour l'installation}
+                \end{figure}
+	\newpage
+		On procédera à une installation par défaut.
+		 \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/demarrerISO3.png}
+                        \caption{Type d'installation}
+                \end{figure}
+		
+	\newpage
+		Une nouvelle fenêtre pour le choix du fuseau horaire. On choisie Paris.
+		 \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/demarrerISO4.png}
+                        \caption{Choix du fuseau horaire.}
+                \end{figure}
+	\newpage
+		La nouvelle fenêtre qui s'affiche est pour le choix de la disposition du clavier.
+
+		 \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/demarrerISO5.png}
+                        \caption{Disposition du clavier.}
+                \end{figure}
+
+		\newpage
+
+		On procède dans cette étape à la création du client1.	
+		\begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/demarrerISO6.png}
+                        \caption{Création du client1.}
+                \end{figure}
+
+		\newpage
+		On redémarre la machine.
+
+	\begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{projet-secu/proscan/proscan/rapport/images/demarrerISO7.png}
+                        \caption{Redémarrage de la machine.}
+                \end{figure}
+	
+		On est arrivé à la fin de l'installation de la machine client1, pour le deuxième client il nous suffit de faire un clone du premier client. UN clic droit sur la machine client1 puis manage puis clone.
+
+	On démarre la machine clonnée puis dans /etc/hostname on modifie le nom en la nommant client2.
+		\colorbox{gray}{vim /etc/hostname}
+
+	
 \newpage
 \section{{\color{red} Git}}
 	\paragraph{}
 		Nous avons décidé d'utiliser un serveur git pour gérer les sources.
-	\paragraph{}
 		
+		Git est un logiciel de gestion de versions décentralisé. C'est-à-dire que le développement ne se fait pas sur un serveur centralisé, mais chaque personne peut développer sur son propre dépôt. Git facilite ensuite la fusion (merge) des différents dépôts.
+
+		Pour pouvoir utiliser Git, il suffit d'installer le paquet git:
+	
+		\colorbox{gray} {apt-get install git}
+
+	\subsection{{\color{red} Gérer les dépots}}
+		\paragraph{}
+			Pour pouvoir utiliser le Git il va falloir tout d'abord créer un dépot.
+			
+			\colorbox{gray}{mkdir proscan
+
+				cd proscan
+	
+				git init}
+	
+	\subsection{{\color{red} Etat du dépot}}	
+		\paragraph{}
+			\colorbox{gray}{git diff git diff <commit1> <commit2>}
+
+			Le git offre la possiblité de trouver les changements éffectués. SI vous avez des changements pas encore commités, la commande git diff affichera les modifications éffectuées depuis le dernier commit.
+
+			\colorbox{gray}{git status} Permet de savoir tout ce qui n'a pas encore été validé.
+	
+			\colorbox{gray}{git log} Liste les commits éffectués dans le dépot. Et ainsi voir les modifications faites dans quelle date et par qui.
+
+	\subsection{{\color{red} Gestion des fichiers}}
+
+		\paragraph{}
+			Pour ajouter au git un dossier ou un fichier on utilise la commande:
+
+			\colorbox{gray}{git add <nom-du fichier-ou-du-dossier>}
+
+			Pour ajouter tout le contenu d'un fichier ou d'un dossier:
+
+			\colorbox{gray}{git add *}
+
+			Pour supprimer le fichier de l'ordinateur, ainsi que du dépot git:		
+			
+			\colorbox{gray}{git rm <nom-fichier>}
+
+			Pour dépolacer le fichier de l'ordinateur, ainsi que du dépot Git:
+			
+			\colorbox{gray}{git mv <nom-fichier> <nouvel-emplacement>}
+
+	\subsection{{\color{red} Gestion des commits}}
+
+		\paragraph{}
+			Met à jour votre dépôt local (à faire avant de commencer à modifier des fichiers pour être sûr de travailler sur leurs dernières versions et avant tout commit pour éviter les éventuels conflits avec des modifications effectuées par d'autres utilisateurs entre temps). 
+
+			\colorbox{gray}{git pull}
+
+			Créer un commit contenant fichier1 et fichier2. Ces fichiers auront dû être au préal able ajoutés au dépôt avec la commande git add. Il s'agit de la validation d'une transaction. 
+
+			Pour envoyer un commit dans la branche principale du dépot (master):
+			
+			\colorbox{gray}{git push origin master}	
+
 \newpage
 \section{{\color{red} BDD}}
 	\paragraph{}
