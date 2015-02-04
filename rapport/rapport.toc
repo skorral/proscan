@@ -2,17 +2,33 @@
 \contentsline {paragraph}{}{1}
 \contentsline {paragraph}{}{1}
 \contentsline {paragraph}{toto}{2}
-\contentsline {section}{\numberline {1}{\color {red} Machines Virtuelles}}{1}
-\contentsline {subsection}{\numberline {1.1}{\color {blue}{Installation du serveur}}}{1}
+\contentsline {section}{\numberline {1}{\color {red}Installation des machines virtuelles}}{1}
+\contentsline {subsection}{\numberline {1.1}{\color {blue}{Installation du serveur Debian}}}{1}
 \contentsline {paragraph}{}{1}
-\contentsline {subsection}{\numberline {1.2}{\color {blue}{Installation du client}}}{1}
 \contentsline {paragraph}{}{1}
-\contentsline {section}{\numberline {2}{\color {red} BDD}}{2}
-\contentsline {section}{\numberline {3}{\color {red} Client/Serveur}}{3}
-\contentsline {section}{\numberline {4}{\color {red} Scans}}{4}
-\contentsline {section}{\numberline {5}{\color {red} Interface WEB}}{5}
-\contentsline {section}{\numberline {6}{\color {red}Conclusion}}{6}
-\contentsline {section}{\numberline {7}{\color {red}Evolution temporelle}}{7}
-\contentsline {section}{\numberline {8}{\color {red}Bibliographie}}{8}
-\contentsline {paragraph}{}{8}
-\contentsline {paragraph}{}{8}
+\contentsline {subsection}{\numberline {1.2}{\color {blue}{Installation du client ubuntu}}}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {section}{\numberline {2}{\color {red} Git}}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {subsection}{\numberline {2.1}{\color {red} G\IeC {\'e}rer les d\IeC {\'e}pots}}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {subsection}{\numberline {2.2}{\color {red} Etat du d\IeC {\'e}pot}}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {subsection}{\numberline {2.3}{\color {red} Gestion des fichiers}}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {subsection}{\numberline {2.4}{\color {red} Gestion des commits}}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {section}{\numberline {3}{\color {red} BDD}}{30}
+\contentsline {paragraph}{}{30}
+\contentsline {section}{\numberline {4}{\color {red} Client/Serveur}}{31}
+\contentsline {section}{\numberline {5}{\color {red} Scans}}{32}
+\contentsline {section}{\numberline {6}{\color {red} Interface WEB}}{33}
+\contentsline {section}{\numberline {7}{\color {red} Script }}{34}
+\contentsline {paragraph}{Permissions}{34}
+\contentsline {subsection}{\numberline {7.1}{\color {blue}En Tant qu'utilisateur}}{34}
+\contentsline {subsection}{\numberline {7.2}{\color {blue}En Tant qu'administrateur}}{34}
+\contentsline {section}{\numberline {8}{\color {red}Conclusion}}{35}
+\contentsline {section}{\numberline {9}{\color {red}\IeC {\'E}volution temporelle}}{36}
+\contentsline {section}{\numberline {10}{\color {red}Bibliographie}}{37}
+\contentsline {paragraph}{}{37}
+\contentsline {paragraph}{}{37}
