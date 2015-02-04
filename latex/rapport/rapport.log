@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.2.4)  4 FEB 2015 08:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.2.4)  4 FEB 2015 09:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -633,16 +633,16 @@ File: images/demarrerISO7.png Graphic file (type png)
 Package pdftex.def Info: images/demarrerISO7.png used on input line 337.
 (pdftex.def)             Requested size: 352.81552pt x 170.11476pt.
  [28 <./images/demarrerISO7.png>] [29] [30]
-[31] [32] [33]
-Underfull \hbox (badness 10000) in paragraph at lines 426--427
+[31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 423--424
 
  []
 
-[34] [35] [36] [37] (./rapport.aux) ) 
+[33] [34] [35] [36] (./rapport.aux) ) 
 Here is how much of TeX's memory you used:
  7015 strings out of 493108
  98206 string characters out of 6140726
- 185823 words of memory out of 5000000
+ 186823 words of memory out of 5000000
  10324 multiletter control sequences out of 15000+600000
  33357 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -652,10 +652,10 @@ e/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
 /share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-di
 st/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb>
-Output written on rapport.pdf (42 pages, 1363842 bytes).
+Output written on rapport.pdf (41 pages, 1363566 bytes).
 PDF statistics:
- 220 PDF objects out of 1000 (max. 8388607)
- 109 compressed objects within 2 object streams
+ 217 PDF objects out of 1000 (max. 8388607)
+ 107 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  156 words of extra memory for PDF output out of 10000 (max. 10000000)
 

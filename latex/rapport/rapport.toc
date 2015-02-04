@@ -1,0 +1,33 @@
+\select@language {french}
+\contentsline {paragraph}{}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {paragraph}{toto}{2}
+\contentsline {section}{\numberline {1}{\color {red}Installation des machines virtuelles}}{1}
+\contentsline {subsection}{\numberline {1.1}{\color {blue}{Installation du serveur Debian}}}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {subsection}{\numberline {1.2}{\color {blue}{Installation du client ubuntu}}}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {section}{\numberline {2}{\color {red} Git}}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {subsection}{\numberline {2.1}{\color {blue} G\IeC {\'e}rer les d\IeC {\'e}pots}}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {subsection}{\numberline {2.2}{\color {blue} Etat du d\IeC {\'e}pot}}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {subsection}{\numberline {2.3}{\color {blue} Gestion des fichiers}}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {subsection}{\numberline {2.4}{\color {blue} Gestion des commits}}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {section}{\numberline {3}{\color {red} BDD}}{30}
+\contentsline {paragraph}{}{30}
+\contentsline {section}{\numberline {4}{\color {red} Client/Serveur}}{31}
+\contentsline {section}{\numberline {5}{\color {red} Interface WEB}}{32}
+\contentsline {section}{\numberline {6}{\color {red} Script }}{33}
+\contentsline {paragraph}{Permissions}{33}
+\contentsline {subsection}{\numberline {6.1}{\color {blue}En Tant qu'utilisateur}}{33}
+\contentsline {subsection}{\numberline {6.2}{\color {blue}En Tant qu'administrateur}}{33}
+\contentsline {section}{\numberline {7}{\color {red}Conclusion}}{34}
+\contentsline {section}{\numberline {8}{\color {red}\IeC {\'E}volution temporelle}}{35}
+\contentsline {section}{\numberline {9}{\color {red}Bibliographie}}{36}
+\contentsline {paragraph}{}{36}
+\contentsline {paragraph}{}{36}

@@ -355,7 +355,7 @@
 	
 		\colorbox{gray} {apt-get install git}
 
-	\subsection{{\color{red} Gérer les dépots}}
+	\subsection{{\color{blue} Gérer les dépots}}
 		\paragraph{}
 			Pour pouvoir utiliser le Git il va falloir tout d'abord créer un dépot.
 			
@@ -365,7 +365,7 @@
 	
 				git init}
 	
-	\subsection{{\color{red} Etat du dépot}}	
+	\subsection{{\color{blue} Etat du dépot}}	
 		\paragraph{}
 			\colorbox{gray}{git diff git diff <commit1> <commit2>}
 
@@ -375,7 +375,7 @@
 	
 			\colorbox{gray}{git log} Liste les commits éffectués dans le dépot. Et ainsi voir les modifications faites dans quelle date et par qui.
 
-	\subsection{{\color{red} Gestion des fichiers}}
+	\subsection{{\color{blue} Gestion des fichiers}}
 
 		\paragraph{}
 			Pour ajouter au git un dossier ou un fichier on utilise la commande:
@@ -394,7 +394,7 @@
 			
 			\colorbox{gray}{git mv <nom-fichier> <nouvel-emplacement>}
 
-	\subsection{{\color{red} Gestion des commits}}
+	\subsection{{\color{blue} Gestion des commits}}
 
 		\paragraph{}
 			Met à jour votre dépôt local (à faire avant de commencer à modifier des fichiers pour être sûr de travailler sur leurs dernières versions et avant tout commit pour éviter les éventuels conflits avec des modifications effectuées par d'autres utilisateurs entre temps). 
@@ -408,9 +408,28 @@
 			\colorbox{gray}{git push origin master}	
 
 \newpage
-\section{{\color{red} BDD}}
-	\paragraph{}
-		%Nous avons choisi d'utiliser phpmyadmin.
+\section{{\color{red} Base De Données}}
+	\subsection{{\color{blue}Client}}
+		\paragraph{Table Client}
+			La table client est constitué de :
+			\begin{itemize}
+				\item id : identifiant auto-indexé, clé primaire
+				\item ip : adresse ip du client
+				\item hmac : hmac du client (unique)
+				\item hostname : Nom d'hôte du client
+				\item pid : pid du processus chargé de communiquer avec ce client
+			\end{itemize}
+	\subsection{{\color{blue} Script}}
+		\paragraph{Table Script}
+			La table script est constitué de :
+			\begin{itemize}
+				\item id : identifiant auto-indexé, clé primaire
+				\item nom : Nom du script
+				\item description : Description rapide du script
+				\item code : code du script
+			\end{itemize}
+		
+		
 \newpage
 \section{{\color{red} Client/Serveur}}
 
