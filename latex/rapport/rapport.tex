@@ -74,8 +74,8 @@
 
 \newpage
 \section*{{\color{red}Introduction}}
-	\paragraph{toto}
-		presentation du projet
+	\paragraph{}
+		Dans le cadre de notre formation d'ingénieurs en Sécurité et Technologies Informatiques, un projet d'application sécurité nous est soumis. Dans notre cas il s'agit de concevoir une application client/serveur permettant la supervision et l'audit de la sécurité dans un réseau. Il s'agit de nous mettre en situation de travail en binôme  sur un projet donné et sur un moyen terme. 
 		
 		
 \newpage
@@ -411,7 +411,7 @@
 \section{{\color{red} Base De Données}}
 	\subsection{{\color{blue}Client}}
 		\paragraph{Table Client}
-			La table client est constitué de :
+			La table client est constituée de :
 			\begin{itemize}
 				\item id : identifiant auto-indexé, clé primaire
 				\item ip : adresse ip du client
@@ -421,12 +421,21 @@
 			\end{itemize}
 	\subsection{{\color{blue} Script}}
 		\paragraph{Table Script}
-			La table script est constitué de :
+			La table script est constituée de :
 			\begin{itemize}
 				\item id : identifiant auto-indexé, clé primaire
 				\item nom : Nom du script
 				\item description : Description rapide du script
 				\item code : code du script
+			\end{itemize}
+	\subsection{{\color{blue}Result}}
+		\paragraph{Table Result}
+			La table result qui enregistre les résultats des scripts est constituée de :
+			\begin{itemize}
+				\item id : identifiant auto-indexé, clé primaire
+				\item idclient : Identifiant du client
+				\item idscrip : Identifiant du script
+				\item result : résultat du script
 			\end{itemize}
 		
 		
@@ -471,67 +480,64 @@
 			\hline
 				14 & Affiche l'état de la mémoire de la partition courante.\\
 			\hline
-				15 & Affichage de la derniére connexion local.\\
-			\hline
-				16 & Affiche les règles iptables pour filter, nat et mangle .\\
-			\hline
-				17 & Vérification de l'intérité de /bin, /usr/bin, /sbin, /usr/sbin.\\
+				17 & Vérification de l'intégrité de /bin, /usr/bin, /sbin, /usr/sbin.\\
 			\hline
 		\end{tabular}
 			
 	\subsection{{\color{blue}En Tant qu'administrateur}}
-	
+		\begin{tabular}{|l|p{12cm}|}
+			\hline
+			\textbf{N°}&\textbf{Résultats}\\
+				15 & Affichage de la dernière connexion local.\\
+			\hline
+				16 & Affiche les règles iptables pour filter, nat et mangle .\\
+			\hline
+		\end{tabular}
+		
 \newpage
 \section{{\color{red}Conclusion}}
+	
 
-\newpage
-\section{{\color{red}Évolution temporelle}}
-\begin{tabular}{|l|p{12cm}|}
-	\hline
-		
-		\textbf{DATE}& \textbf{OBJET} \\
-		
-	\hline
-		10/09/14 & Présentation du projet et formation du binôme\\
-	\hline
-		17/09/14 & Début rapport. Étude du sujet. Installation VM Client\\
-	\hline
-		24/09/14 & Début client/server\\
-	\hline
-		01/10/14 & Rédaction des Makefiles de base\\
-	\hline
-		08/10/14 & Correction erreur client/serveur\\
-	\hline
-		07/11/14 & Fonction client exécution de script\\
-	\hline
-		10/11/14 & Premier scan. Création fonction de log client\\
-	\hline
-		19/11/14 & Autres script\\
-	\hline
-		03/12/14 & script mémoire + pattern script\\
-	\hline
-		08/12/14 & Scripts, ajout de la description des scripts au rapport\\
-	\hline
-		
-		
-
-\end{tabular}
+%\newpage
+%\section{{\color{red}Évolution temporelle}}
+%\begin{tabular}{|l|p{12cm}|}
+%	\hline
+%		
+%		\textbf{DATE}& \textbf{OBJET} \\
+%		
+%	\hline
+%		10/09/14 & Présentation du projet et formation du binôme\\
+%	\hline
+%		17/09/14 & Début rapport. Étude du sujet. Installation VM Client\\
+%	\hline
+%		24/09/14 & Début client/server\\
+%	\hline
+%		01/10/14 & Rédaction des Makefiles de base\\
+%	\hline
+%		08/10/14 & Correction erreur client/serveur\\
+%	\hline
+%		07/11/14 & Fonction client exécution de script\\
+%	\hline
+%		10/11/14 & Premier scan. Création fonction de log client\\
+%	\hline
+%		19/11/14 & Autres script\\
+%	\hline
+%		03/12/14 & script mémoire + pattern script\\
+%	\hline
+%		08/12/14 & Scripts, ajout de la description des scripts au rapport\\
+%	\hline
+%		
+%		
+%
+%\end{tabular}
 		
 
 
 
 \newpage
 \section{{\color{red}Bibliographie}}
-%\thispagestyle{empty}
-	\subsection*{{\color{blue}C}}
-		
-	\subsection*{{\color{blue}SDL}}
-		\paragraph{}
-			
-			
-	\subsection*{{\color{blue}LaTeX}}
-		\paragraph{}
-	
+%\thispagestyle{empty}		
+	\subsection*{\color{blue}Le "man" linux}
 %Une liste:
 %
 %\begin{itemize}
