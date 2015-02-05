@@ -10,7 +10,7 @@
 #include <errno.h>
 #include "../common/net.h"
 #include "../common/const.h"
-
+#include <unistd.h>
 
 
 int main(int argc, char **argv){
@@ -21,49 +21,58 @@ int main(int argc, char **argv){
 	socklen_t addrlen = sizeof (sockaddr);
 	memset(buf,'\0',BUF_SIZ);
 	pid_t childpid;
+	pid_t pid=getpid();
 	if(argc!=2){
 		printf("Usage : %s port_local\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
-	printf("start listenConnection\n");
+	printf("[%d] start listenConnection\n",pid);
 	listener = listenConnection(argv[1]);
 	while(1){
 
-		printf("end listenConnection\nstart accept\n");
+		printf("[%d] end listenConnection\nstart accept\n",pid);
 		ear = accept(listener, (struct sockaddr*) &sockaddr, &addrlen);
 		if(ear <0){
-			printf("can't accept\n");
-			perror("accept");
+			printf("[%d] can't accept\n",pid);
+			perror("[%d] accept",pid);
 			exit(EXIT_FAILURE);
 		}
 		if(ear ==-1){
 			perror(argv[0]);
 			exit(EXIT_FAILURE);
 		}
-		printf("End accept\n");
+		printf("[%d] End accept\n",pid);
 		if((childpid = fork()) == 0) {
 
-			sprintf(buf,"Début d'échange de commande\n");
-			printf("buffer = %s\n",buf);
-			printf("Début du test de write\n");
+			sprintf(buf,"[%d] Début d'échange de commande\n",pid);
+			printf("[%d] buffer = %s\n",pid,buf);
+			printf("[%d] Début du test de write\n",pid);
 
 			if((written = sendto(ear, buf, BUF_SIZ,0, (struct sockaddr *) &sockaddr, sizeof(sockaddr)))==-1){
 				perror("problem with Written");
 				return errno;
 			}
-			printf("Fin du test du write\n");
+			printf("[%d] Fin du test du write\n",pid);
 			while(1){
 				scanf("%s",buf);
 				written = sendto(ear, buf,BUF_SIZ,0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
-				printf("message de %s envoye\n",buf);
+				printf("[%d] message envoye : %s\n",pid,buf);
 			}
-			printf("close sockaddr\n");
+			printf("[%d] close sockaddr\n",pid);
 		}
+		else if ((chilpid != 0)){
+			printf("[%d] have fork, the child is [%d]\n",pid,childpid);
+		}
+		else if (cpid == -1) {
+			perror("Le fork n'a pas fonctionné");
+			exit(EXIT_FAILURE); // quitte le programme si le fork n'as pas fonctionné
+		}
+
 	}
-	printf("Close open fd\n");
+	printf("[%d] Close open fd\n",pid);
 	close(ear);
 	close(listener);
-	printf("End of server\n");
+	printf("[%d] End of server\n",pid);
 	exit(EXIT_SUCCESS);
 }
 

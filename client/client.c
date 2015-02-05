@@ -51,12 +51,18 @@ void inscription(char * ip_serveur, char * port){ //Cette fonction inscrit le se
 
 }
 
-void execution_script(char i) //Fonction permettant l'exécution de scan sur le client.
+void execution_script(char i) //Fonction permettant l'exécution de script local sur le client.
 {
 
 	char *chaine;
 	chaine = calloc(512,sizeof(char));
 	sprintf(chaine,"./../script/script_%c.sh>resultat_script_client.txt",i);
+	system(chaine);
+}
+
+void execution_script_recu(char *code){
+	scan = calloc(sizeof(code),sizeof(char));
+	sprintf(scan,"%s\n",code);
 	system(chaine);
 }
 
