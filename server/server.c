@@ -34,7 +34,7 @@ int main(int argc, char **argv){
 		ear = accept(listener, (struct sockaddr*) &sockaddr, &addrlen);
 		if(ear <0){
 			printf("[%d] can't accept\n",pid);
-			perror("[%d] accept",pid);
+			perror("accept");
 			exit(EXIT_FAILURE);
 		}
 		if(ear ==-1){
@@ -60,10 +60,10 @@ int main(int argc, char **argv){
 			}
 			printf("[%d] close sockaddr\n",pid);
 		}
-		else if ((chilpid != 0)){
+		else if ((childpid != 0)){
 			printf("[%d] have fork, the child is [%d]\n",pid,childpid);
 		}
-		else if (cpid == -1) {
+		else if (childpid == -1) {
 			perror("Le fork n'a pas fonctionné");
 			exit(EXIT_FAILURE); // quitte le programme si le fork n'as pas fonctionné
 		}

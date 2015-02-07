@@ -36,10 +36,10 @@ int verif( char *test){     //Cette fonction permet de vérifier la non double i
 }
 
 void inscription(char * ip_serveur, char * port){ //Cette fonction inscrit le serveur dans le fichier de log lors de la 1er connection
-        if(argc != 3){
+        /*if(argc != 3){
 		printf("Usage %s ip_server port\n",argv[0]);
 		exit(EXIT_SUCCESS);
-	}
+	}*/
 	FILE * fichier;
 	fichier = fopen("../log/client/server_log.txt","a+");
 	fputs("*****************************\n",fichier);
@@ -51,19 +51,20 @@ void inscription(char * ip_serveur, char * port){ //Cette fonction inscrit le se
 
 }
 
-void execution_script(char i) //Fonction permettant l'exécution de script local sur le client.
+void execution_script(char *i) //Fonction permettant l'exécution de script local sur le client.
 {
 
 	char *chaine;
 	chaine = calloc(512,sizeof(char));
-	sprintf(chaine,"./../script/script_%c.sh>resultat_script_client.txt",i);
+	sprintf(chaine,"./../script/user/script_%s.sh>resultat_script_client.txt",i);
 	system(chaine);
 }
 
 void execution_script_recu(char *code){
+	char *scan;
 	scan = calloc(sizeof(code),sizeof(char));
 	sprintf(scan,"%s\n",code);
-	system(chaine);
+	system(scan);
 }
 
 
@@ -98,6 +99,7 @@ int main(int argc, char *argv[]) {
 		recvfrom(sockfd, buf, BUF_SIZ, 0 ,NULL, NULL);
 		printf("message recu : %s\n",buf);
 		fprintf(fd_out,"message recu : %s\n",buf);
+		execution_script(buf);
 	}
 	printf("Close open fd\n");
 	fclose(fd_out);	

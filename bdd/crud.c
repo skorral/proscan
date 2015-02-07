@@ -6,16 +6,17 @@
 char *bdd_select(char *qry){
 	MYSQL mysql;
 	mysql_init(&mysql);
-	mysql_res *result = NULL;
-	mysql_row row;
+	MYSQL_RES *result = NULL;
+	MYSQL_ROW row;
 	/*mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");*/
 	int i = 1;
-	char *buf = [];
+	char *buf;
+	buf = (char *) malloc(1024);
 	if(mysql_real_connect(&mysql,"127.0.0.1","proscan","","proscan",0,NULL,0)){
 		mysql_query(&mysql,qry);
 		result = mysql_use_result(&mysql);
 		while((row = mysql_fetch_row(result))){
-			sprintf(buf,"Result : %ld\n",i);
+			sprintf(buf,"Result : %d\n",i);
 			i++;
 		}
 		mysql_free_result(result);
@@ -25,15 +26,16 @@ char *bdd_select(char *qry){
 		mysql_close(&mysql);
 	}
 	return buf;
+	//Penser a free le buffer apres chaque appel de la fonction
 }
 
 int bdd_delete(void){
 	MYSQL mysql;
 	mysql_init(&mysql);
-	int n;
+//	int n;
 	/*mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");*/
 	if(mysql_real_connect(&mysql,"127.0.0.1","proscan","","proscan",0,NULL,0)){
-		n=mysql_affected_rows(MYSQL *mysql);
+//		n=mysql_affected_rows(mysql);
 		mysql_close(&mysql);
 	}else{      
 		printf("Une erreur s'est produite lors de la connexion à la BDD!\n");
@@ -45,10 +47,10 @@ int bdd_delete(void){
 int bdd_update(void){
 	MYSQL mysql;
 	mysql_init(&mysql);
-	int n;
+//	int n;
 	/*mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");*/
 	if(mysql_real_connect(&mysql,"127.0.0.1","proscan","","proscan",0,NULL,0)){
-		n=mysql_affected_rows(MYSQL *mysql);
+//		n=mysql_affected_rows(mysql);
 		mysql_close(&mysql);
 	}else{      
 		printf("Une erreur s'est produite lors de la connexion à la BDD!\n");
@@ -63,15 +65,15 @@ int bdd_insert(char *qry){
 	/*mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");*/
 	/*char *ip;
 	char *fd;*/
-	int n;
+//	my_ulonglong n;
 	
 	/*strcpy(ip,addr);
 	strcpy(fd,file_descriptor);*/
 	if(mysql_real_connect(&mysql,"127.0.0.1","proscan","","proscan",0,NULL,0)){
 		mysql_query(&mysql,qry);
 		//mysql_query(&mysql,"INSERT INTO client ip:port,fd VAlUES(ip,fd)");
-		n=mysql_affected_rows(&mysql);
-		printf("Nombre de colonne affecté = %d\n",n);
+	//	n=mysql_affected_rows(&mysql);
+	//	printf("Nombre de colonne affecté = %d\n",n);
 
 		mysql_close(&mysql);
 	}else{      
