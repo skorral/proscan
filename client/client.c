@@ -14,6 +14,7 @@
 #include <sys/time.h>
 #include "../common/const.h"
 #include "../common/net.h"
+#include "../common/net.c"
 
 int verif( char *test){     //Cette fonction permet de vérifier la non double inscription d'un serveur dans le fichier de log
 
@@ -56,7 +57,7 @@ void execution_script(char *i) //Fonction permettant l'exécution de script loca
 
 	char *chaine;
 	chaine = calloc(512,sizeof(char));
-	sprintf(chaine,"./../script/user/script_%s.sh>resultat_script_client.txt",i);
+	sprintf(chaine,"./../script/user/script_%s.sh>resultat_script_client_%s.txt",i,i);
 	system(chaine);
 }
 
@@ -87,12 +88,13 @@ int main(int argc, char *argv[]) {
 		exit(EXIT_FAILURE);
 	}
 	printf("openConnection\n");
+	inscription(argv[1], argv[2]);
 	if((sockfd = openConnection(argv[1], argv[2]))<0){
 		perror("Connection failure");
 	}
 	fd_out = fopen("client_out","a+");
 	if(!fd_out){
-		printf("\aERREUR: Impossible d'ouvrir le fichier: %s.\n", fd_out);
+//		printf("\aERREUR: Impossible d'ouvrir le fichier: %s.\n", fd_out);
 	}
 	printf("read\n");
 	while(strcmp(buf,"quit")!=0){
