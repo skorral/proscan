@@ -82,7 +82,9 @@ int main(int argc, char *argv[]) {
 	int sockfd = -1;
 	char buf[BUF_SIZ];
 	FILE *fd_out;
+	FILE * resultat;
 	memset(buf, 0, BUF_SIZ);
+	char s[128];
 	if(argc<3){
 		printf("Usage : %s @server port_server\n",argv[0]);
 		exit(EXIT_FAILURE);
@@ -92,16 +94,21 @@ int main(int argc, char *argv[]) {
 	if((sockfd = openConnection(argv[1], argv[2]))<0){
 		perror("Connection failure");
 	}
-	fd_out = fopen("client_out","a+");
+	fd_out = fopen("client_out.txt","a+");
 	if(!fd_out){
 //		printf("\aERREUR: Impossible d'ouvrir le fichier: %s.\n", fd_out);
 	}
 	printf("read\n");
 	while(strcmp(buf,"quit")!=0){
-		recvfrom(sockfd, buf, BUF_SIZ, 0 ,NULL, NULL);
-		printf("message recu : %s\n",buf);
-		fprintf(fd_out,"message recu : %s\n",buf);
-		execution_script(buf);
+		recvfrom(sockfd, buf, BUF_SIZ, 0 ,NULL, NULL); //reception de la commande
+		//printf("message recu : %s\n",buf); 
+		fprintf(fd_out,"message recu : %s\n",buf);//enregistrement de la commande a executer dans le fichier de log
+		execution_script(buf); //execution de la commande
+		resultat = fopen("resultat_script_client.txt","r"); //stockage local du resultat
+                while (fgets(s,128,resultat) != NULL) {//envoi du resultat
+	                write(sockfd,s,128);
+		}
+		supression_fichier_resultat(); //suppression du fichier local de resulatat
 	}
 	printf("Close open fd\n");
 	fclose(fd_out);	
