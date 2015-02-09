@@ -5,31 +5,30 @@
 \contentsline {section}{\numberline {1}{\color {red}Installation des machines virtuelles}}{1}
 \contentsline {subsection}{\numberline {1.1}{\color {blue}{Installation du serveur Debian}}}{1}
 \contentsline {paragraph}{}{1}
-\contentsline {paragraph}{}{1}
-\contentsline {subsection}{\numberline {1.2}{\color {blue}{Installation du client ubuntu}}}{22}
-\contentsline {paragraph}{}{22}
-\contentsline {section}{\numberline {2}{\color {red} Git}}{29}
-\contentsline {paragraph}{}{29}
-\contentsline {subsection}{\numberline {2.1}{\color {blue} G\IeC {\'e}rer les d\IeC {\'e}pots}}{29}
-\contentsline {paragraph}{}{29}
-\contentsline {subsection}{\numberline {2.2}{\color {blue} Etat du d\IeC {\'e}pot}}{29}
-\contentsline {paragraph}{}{29}
-\contentsline {subsection}{\numberline {2.3}{\color {blue} Gestion des fichiers}}{29}
-\contentsline {paragraph}{}{29}
-\contentsline {subsection}{\numberline {2.4}{\color {blue} Gestion des commits}}{29}
-\contentsline {paragraph}{}{29}
-\contentsline {section}{\numberline {3}{\color {red} Base De Donn\IeC {\'e}es}}{30}
-\contentsline {subsection}{\numberline {3.1}{\color {blue}Client}}{30}
-\contentsline {paragraph}{Table Client}{30}
-\contentsline {subsection}{\numberline {3.2}{\color {blue} Script}}{30}
-\contentsline {paragraph}{Table Script}{30}
-\contentsline {subsection}{\numberline {3.3}{\color {blue}Result}}{30}
-\contentsline {paragraph}{Table Result}{30}
-\contentsline {section}{\numberline {4}{\color {red} Client/Serveur}}{31}
-\contentsline {section}{\numberline {5}{\color {red} Interface WEB}}{32}
-\contentsline {section}{\numberline {6}{\color {red} Script }}{33}
-\contentsline {paragraph}{Permissions}{33}
-\contentsline {subsection}{\numberline {6.1}{\color {blue}En Tant qu'utilisateur}}{33}
-\contentsline {subsection}{\numberline {6.2}{\color {blue}En Tant qu'administrateur}}{33}
-\contentsline {section}{\numberline {7}{\color {red}Conclusion}}{34}
-\contentsline {section}{\numberline {8}{\color {red}Bibliographie}}{35}
+\contentsline {subsection}{\numberline {1.2}{\color {blue}{Installation du client ubuntu}}}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {section}{\numberline {2}{\color {red} Git}}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {subsection}{\numberline {2.1}{\color {blue} G\IeC {\'e}rer les d\IeC {\'e}pots}}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {subsection}{\numberline {2.2}{\color {blue} Etat du d\IeC {\'e}pot}}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {subsection}{\numberline {2.3}{\color {blue} Gestion des fichiers}}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {subsection}{\numberline {2.4}{\color {blue} Gestion des commits}}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {section}{\numberline {3}{\color {red} Base De Donn\IeC {\'e}es}}{15}
+\contentsline {subsection}{\numberline {3.1}{\color {blue}Client}}{15}
+\contentsline {paragraph}{Table Client}{15}
+\contentsline {subsection}{\numberline {3.2}{\color {blue} Script}}{15}
+\contentsline {paragraph}{Table Script}{15}
+\contentsline {subsection}{\numberline {3.3}{\color {blue}Result}}{15}
+\contentsline {paragraph}{Table Result}{15}
+\contentsline {section}{\numberline {4}{\color {red} Client/Serveur}}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {section}{\numberline {5}{\color {red} Script }}{17}
+\contentsline {paragraph}{Permissions}{17}
+\contentsline {subsection}{\numberline {5.1}{\color {blue}En Tant qu'utilisateur}}{17}
+\contentsline {subsection}{\numberline {5.2}{\color {blue}En Tant qu'administrateur}}{17}
+\contentsline {section}{\numberline {6}{\color {red}Conclusion}}{18}
+\contentsline {section}{\numberline {7}{\color {red}Bibliographie}}{19}

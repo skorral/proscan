@@ -1,7 +1,7 @@
 \documentclass[11pt,a4paper,titlepage, oneside]{article}
-
 \usepackage[T1]{fontenc}
 \usepackage[utf8x]{inputenc}
+\usepackage{graphics}
 \usepackage{graphicx} 	% images
 \usepackage{wrapfig}
 \usepackage{listings}
@@ -14,9 +14,10 @@
 \usepackage{verbatim}  
 \usepackage{moreverb}       % texte preformate
 \usepackage{array}
+\usepackage{morefloats}
 %\usepackage[linktocpage,colorlinks=true]{hyperref}
 \usepackage[final]{pdfpages}
-
+\usepackage{listings}
 %Définition de l'apparence des listings
 \lstset{
 	frame=single,
@@ -48,7 +49,7 @@
 \end{figure}
 \vspace{0,5cm}
 \begin{center} 
-\Huge{\textbf{{\color{red}}}Projet 2A STI : Supervision et audit de la sécurité système dans un réseau}
+\Huge{\textbf{{\color{red}}}Projet 4A STI : Supervision et audit de la sécurité système dans un réseau}
 \\
 \vspace{1.5 cm}
 
@@ -59,7 +60,7 @@
 \large{Aymeric Berquin \\ \& \\ Fayçal-Anoar Cherkaoui}
 \vspace{1 cm}
 \paragraph{}
-	\Large{Date de rendu de rapport : 12/02/2015}
+	\Large{Date de rendu de rapport : 10/02/2015}
 	\\
 	
 \vspace{1.5 cm}
@@ -67,20 +68,31 @@
 \end{titlepage} 
 \normalsize
 \newpage
-\section*{\textbf{Remerciement}}
+\section*{\textbf{Remerciements}}
 \thispagestyle{empty}
 	\paragraph{}
-	Nous remercions Monsieur Briffaut pour le temps et les ressources qu'il nous a consacré. Nous le remercions aussi pour toutes les connaissances qu'il nous a apportés.
-
+	\begin{large}
+	
+	\textit{
+	Avant d’entamer ce sujet nous saisissons la présence pour exprimer les remerciements les plus sincères et nos profonds respects à notre encadrant M. Jeremy Briffaut, pour son encadrement, son assistance et son soutien considérables qui ont pu rendre ce travail possible. Ainsi que Nous le remercions aussi pour toutes les connaissances qu'il nous a apportés.}
+	
+\textit{
+Nous aimerions aussi gratifier M. Martial Szpieg et M. Pascal Berthome  pour leur amabilité de nous avoir fourni les explications nécessaires, et les conseils pertinents qui nous ont accompagnés tout au long du projet.}\end{large}
 \newpage
 \section*{{\color{red}Introduction}}
 	\paragraph{}
-		Dans le cadre de notre formation d'ingénieurs en Sécurité et Technologies Informatiques, un projet d'application sécurité nous est soumis. Dans notre cas il s'agit de concevoir une application client/serveur permettant la supervision et l'audit de la sécurité dans un réseau. Il s'agit de nous mettre en situation de travail en binôme  sur un projet donné et sur un moyen terme. 
-		
+\textsl{Dans le cadre de notre formation d'ingénieurs en Sécurité et Technologies Informatiques, un projet d'application sécurité nous est soumis. Dans notre cas il s'agit de concevoir une application client/serveur permettant la supervision et l'audit de la sécurité dans un réseau. Il s'agit de nous mettre en situation de travail en binôme  sur un projet donné et sur un moyen terme. 
+On peut utiliser l'audit d'un réseau afin de prévenir et de réparer un problème lié aux ressources informatiques dans n'importe quelconque organisme. La prévention consiste à adresser régulièrement un état des lieux afin de connaitre les faiblesses qui pourraient se traduire dans le futur en sources de menaces et vulnérabilités exploitables par les pirates.
+Quant à la réparation, l'entreprise peut exploiter l'audit de son réseau afin d'ameliorer les performances de ce dernier. 	}	
+
+\textsl{
+Dans notre projet on s'interssera aux scans afin de mettre en place un système d'audit et de sécurité.
+Le rapport est divisé en 3 grandes parties, la première est un tutoriel d'installation de l'environnement de travail adopté, la deuxème grande partie vient décrire la mise en place d'un dépôt Git qui jouera un moyen de communication sûr est agréable à l'échange de données, la troisème partie consiste en la mise en place d'une base de données où seront stockées les informations regroupées, et enfin la dernière partie est la partie codage des sockets qui joueront le rôle du moyen des communications entre le serveur et les clients afin d'échanger les données.}
 		
 \newpage
 \thispagestyle{empty}
 \tableofcontents
+\newpage
 \listoffigures  % table des figures
 
 \newpage
@@ -88,178 +100,161 @@
 \section{{\color{red}Installation des machines virtuelles}}
 \subsection{{\color{blue}{Installation du serveur Debian}}}
 	\paragraph{}
-		Installation d'un debian classique sans interface graphique, qui jouera le rôle du maitre.
+		Installation d'un debian classique sans interface graphique, qui jouera le rôle du maître.
 		
-		On récupère l'iso sepuis le site officiel: http://www.ubuntu.com/download/desktop.
+		On récupère l'iso depuis le site officiel: http://www.debian.org/.
 
 		On configure les caractéristiques suivantes:
 		\begin{itemize}
                         \item{1GB en RAM}
                         \item{1 processeur}
                         \item{20GB en dique dur}
-                \end{itemize}
- 		\paragraph{}
+        \end{itemize}
+ 		
 		On choisi une installation sans interface graphique.
+			
 		 \begin{figure}[h]
                         \centering
-                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian1.png}
+                        \includegraphics[width=0.8\textwidth,natwidth=310,natheight=242]{images/debian1.png}
                         \caption{choix de l'installation}
-                \end{figure}
-
-	\newpage		
-		\begin{figure}[h]
+    	    \end{figure}
+		
+		\begin{figure}[htp]
                         \centering
-                        \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian2.png}
+                        \includegraphics[width=0.8\textwidth,natwidth=310,natheight=242]{images/debian2.png}
                         \caption{choix de la langue}
-                \end{figure}
-	\newpage
-		\begin{figure}[h]
+		\end{figure}
+	
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian3.png}
                         \caption{choix de la localisation géographique}
-                \end{figure}
-
-
-	\newpage
-                \begin{figure}[h]
+		\end{figure}
+	
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian4.png}
                         \caption{Nom de l'hôte: hostname}
-                \end{figure}
-
-	 \newpage
-                \begin{figure}[h]
+		\end{figure}
+	 
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian5.png}
                         \caption{Nom du domaine de la machine}
-                \end{figure}
-
-	 \newpage
-                \begin{figure}[h]
+		\end{figure}
+	 
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian6.png}
                         \caption{Définition du mot de passe du compte root}
-                \end{figure}
-
-
-	 \newpage
-                \begin{figure}[h]
+		\end{figure}
+	 
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian7.png}
                         \caption{Confirmation du mot de passe}
-                \end{figure}
-
-	 \newpage
-                \begin{figure}[h]
+		\end{figure}
+	 
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian8.png}
                         \caption{Création d'un compte utilisateur}
-                \end{figure}
-
-	 \newpage
-                \begin{figure}[h]
+		\end{figure}
+	 
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian9.png}
                         \caption{Choix du login du compte utilistauer précédemment créé}
-                \end{figure}
+		\end{figure}
 
-	 \newpage
-                \begin{figure}[h]
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian10.png}
                         \caption{Définition du mot de passe pour le compte utilisateur}
-                \end{figure}
-
+		\end{figure}
 	
-	\newpage
-                \begin{figure}[h]
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian11.png}
                         \caption{confirmation du mot de passe pour le compte utilisateur}
-                \end{figure}
+		\end{figure}
 
-	 \newpage
-                \begin{figure}[h]
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian12.png}
                         \caption{Partitionnement du disque}
-                \end{figure}
+		\end{figure}
 
-	 \newpage
-                \begin{figure}[h]
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian13.png}
                         \caption{Partitionnement du disque}
-                \end{figure}
+		\end{figure}
 
-
-		 \newpage
-                \begin{figure}[h]
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian14.png}
                         \caption{Partitionnement du disque}
-                \end{figure}
+		\end{figure}
 
-	\newpage
-                \begin{figure}[h]
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian15.png}
                         \caption{Partitionnement du disque}
-                \end{figure}
-
-	\newpage
-                \begin{figure}[h]
+		\end{figure}
+	
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian16.png}
                         \caption{Partitionnement du disque}
-                \end{figure}
+		\end{figure}
 
-	\newpage
-                \begin{figure}[h]
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian17.png}
                         \caption{Configuration de l'outil de gestion du paquet}
-                \end{figure}
+		\end{figure}
 
-	\newpage
-                \begin{figure}[h]
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian18.png}
                         \caption{Configuration de l'outil de gestion du paquet}
-                \end{figure}
-
-	\newpage
-                \begin{figure}[h]
+		\end{figure}
+		
+			\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian19.png}
                         \caption{configuration de l'outil de gestion du paquet}
-                \end{figure}
+		\end{figure}
 
-	\newpage
-                \begin{figure}[h]
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian20.png}
                         \caption{Sélection des logiciels}
-                \end{figure}
-
-	\newpage
-                \begin{figure}[h]
+		\end{figure}
+	
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian21.png}
                         \caption{Installation du programme de démarrage GRUB}
-                \end{figure}
+ 		\end{figure}
 
-	\newpage
-                \begin{figure}[h]
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian22.png}
                         \caption{Fin de l'installation}
-                \end{figure}
+		\end{figure}
+		
+\newpage
 \subsection{{\color{blue}{Installation du client ubuntu}}}
-\paragraph{}
+	\paragraph{}
 	        On aura besoin d'installer deux machines virtuelles avec la dernière distribution Ubuntu stable. Elles auront pour nom client1 et client2.
 
-		Nous avons choisi d'utiliser un Xubuntu 14.04. A récuperer sur le site officiel: http://www.ubuntu.com/download/desktop
+		Nous avons choisi d'utiliser un Xubuntu 14.04. A récuperer sur le site officiel:
+		
+		http://www.ubuntu.com/download/desktop
+		
+		les paramètres à configurer:
 		
 		Nom complet : user
 			
@@ -269,11 +264,12 @@
 		
 		Hostname : client1
 		
-		\begin{figure}[h]
+		\begin{figure}[htp]
   			\centering
   			\includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/vmwareworkstationubuntu.png}
 			\caption{interface de la machine virtuelle VMware}
 		\end{figure}
+		
 		Elle aura pour configuration:
 		\begin{itemize}
                         \item{1GB en RAM}
@@ -283,21 +279,24 @@
 		On éditera la nouvelle machine virtuelle VMware dans laquelle en spécifiant le chemin de l'iso téléchargé.
 		
 		On démarre la machine virtuelle.
-	\newpage
-		\begin{figure}[h]
+	
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/demarrerISO.png}
                         \caption{Choix de la langue d'installation}
-                \end{figure}
+		\end{figure}
+		         
 		Une nouvelle fenêtre s'affiche, on clique sur suivant.
-		 \begin{figure}[h]
+		
+		 \begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/demarrerISO2.png}
                         \caption{Prérequis pour l'installation}
-                \end{figure}
-	\newpage
+         \end{figure}
+	
 		On procédera à une installation par défaut.
-		 \begin{figure}[h]
+		
+		 \begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/demarrerISO3.png}
                         \caption{Type d'installation}
@@ -305,7 +304,7 @@
 		
 	\newpage
 		Une nouvelle fenêtre pour le choix du fuseau horaire. On choisie Paris.
-		 \begin{figure}[h]
+		 \begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/demarrerISO4.png}
                         \caption{Choix du fuseau horaire.}
@@ -313,7 +312,7 @@
 	\newpage
 		La nouvelle fenêtre qui s'affiche est pour le choix de la disposition du clavier.
 
-		 \begin{figure}[h]
+		 \begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/demarrerISO5.png}
                         \caption{Disposition du clavier.}
@@ -322,7 +321,7 @@
 		\newpage
 
 		On procède dans cette étape à la création du client1.	
-		\begin{figure}[h]
+		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/demarrerISO6.png}
                         \caption{Création du client1.}
@@ -331,7 +330,7 @@
 		\newpage
 		On redémarre la machine.
 
-	\begin{figure}[h]
+	\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/demarrerISO7.png}
                         \caption{Redémarrage de la machine.}
@@ -366,7 +365,11 @@
 	
 	\subsection{{\color{blue} Etat du dépot}}	
 		\paragraph{}
-			\colorbox{gray}{git diff git diff <commit1> <commit2>}
+		On peut avoir l'état du dépot en utilisant les commandes:
+		
+			\colorbox{gray}{git diff}
+			
+			\colorbox{gray}{git diff <commit1> <commit2>}
 
 			Le git offre la possiblité de trouver les changements éffectués. SI vous avez des changements pas encore commités, la commande git diff affichera les modifications éffectuées depuis le dernier commit.
 
@@ -440,36 +443,38 @@
 		
 \newpage
 \section{{\color{red} Client/Serveur}}
-
+\paragraph{}
+On utilisera les sockets afin de communiquer entre Client / Serveur, et celà à l'aide d'une adresse IP et d'un port. ces sockets permettront de gérer des flux de données entrant et sortant afin de permettre l'envoie des requêtes depuis le serveur donnant l'ordre au client de renvoyer le résultat d'un script qu'il devra éxecuter, celà dit in s'appuyera sur la manière fiable à l'aide du protocole TCP/IP. 
 %\newpage
 %\section{{\color{red} Interface WEB}}
+
 
 \newpage
 \section{{\color{red} Script }}
 	\paragraph{Permissions}
-		Bien que la majorité de nos scripts puissent s'exécuter avec les permissions d'un utilisateur, certain d'entre eux nécessites les droits d'administrateur.\\
+		Bien que la majorité de nos scripts puissent s'exécuter avec les permissions d'un utilisateur, certain d'entre eux nécessitent les droits d'administrateur.\\
 	\subsection{{\color{blue}En Tant qu'utilisateur}}
 		\begin{tabular}{|l|p{12cm}|}
 			\hline
 				\textbf{N°}&\textbf{Résultats}\\
 			\hline
-				1 & Hostname, Interfaces réseaux, nom de la distribution, version de la distribution, version du noyau, table de routage.\\
+				01 & Hostname, Interfaces réseaux, nom de la distribution, version de la distribution, version du noyau, table de routage.\\
 			\hline
-				2 & Espace des partitions montées.\\
+				02 & Espace des partitions montées.\\
 			\hline
-				3 & Affiche les connections internet actives.\\
+				03 & Affiche les connections internet actives.\\
 			\hline
-				4 & Processus actif.\\
+				04 & Processus actif.\\
 			\hline
-				5 & Variables d'environnement.\\
+				05 & Variables d'environnement.\\
 			\hline
-				6 & Informations CPU, Interruptions, Mémoire utilisée, Fichier\(s\) Swap\(s\), version du noyau,systèmes de fichiers montés, périphériques CPU, périphériques usb.\\
+				06 & Informations CPU, Interruptions, Mémoire utilisée, Fichier\(s\) Swap\(s\), version du noyau,systèmes de fichiers montés, périphériques CPU, périphériques usb.\\
 			\hline
-				7 & Affiche les processus en cours dans une arborescence qui commence à la racine.\\
+				07 & Affiche les processus en cours dans une arborescence qui commence à la racine.\\
 			\hline
-				8 & Récupération de tous les fichiers d'extension ".log".\\
+				08 & Récupération de tous les fichiers d'extension ".log".\\
 			\hline
-				9 & Table de routage.\\
+				09 & Table de routage.\\
 			\hline
 				10 & interfaces réseaux.\\
 			\hline
@@ -487,6 +492,7 @@
 		\begin{tabular}{|l|p{12cm}|}
 			\hline
 			\textbf{N°}&\textbf{Résultats}\\
+			\hline
 				15 & Affichage de la dernière connexion local.\\
 			\hline
 				16 & Affiche les règles iptables pour filter, nat et mangle .\\
