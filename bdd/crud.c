@@ -11,7 +11,7 @@ char *bdd_select(char *qry){
 	/*mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");*/
 	int i = 1;
 	char *buf;
-	buf = (char *) malloc(1024);
+//	buf = (char *) malloc(1024);
 	if(mysql_real_connect(&mysql,"127.0.0.1","proscan","","proscan",0,NULL,0)){
 		mysql_query(&mysql,qry);
 		result = mysql_use_result(&mysql);

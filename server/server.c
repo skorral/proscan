@@ -28,14 +28,14 @@ int choix_script(){
 	int script=0;
 	afficher_script();
 	printf("Quel script voulez-vous executer (Entrez l'id) ? \n");
-	scanf("%d",script);
+	scanf("%d",&script);
 	return script;
 }
 
 int choix_client(){
 	int client=0;
 	printf("Sur quel client (Entrez l'id) ? \n");
-	scanf("%d",client);
+	scanf("%d",&client);
 	return client;
 }
 
@@ -49,13 +49,13 @@ int demander_ordre(int ordre[2]){
 		printf(" 3. Exectuter un script\n");
 		printf(" Quel est votre choix (1, 2 ou 3) ? ");
 		scanf("%d",&choix);
-		if(choix=1){
+		if(choix==1){
 			afficher_script();
 		}
-		else if(choix=2){
+		else if(choix==2){
 			afficher_client();
 		}
-		else if(choix=3){
+		else if(choix==3){
 			ordre[0]=choix_script();
 			ordre[1]=choix_client();
 		}
@@ -69,13 +69,13 @@ int main(int argc, char **argv){
 	int ear, listener;
 	char buf[BUF_SIZ];
 	struct sockaddr_in sockaddr;
-	ssize_t written=0;
+//	ssize_t written=0;
 	socklen_t addrlen = sizeof (sockaddr);
 	memset(buf,'\0',BUF_SIZ);
 	pid_t childpid;
 	pid_t pid=getpid();
 	int done=0;
-	int tun_serv[2];
+	const char tun_serv[2];
 	mkfifo(tun_serv,0666);
 	int ordre[2];
 	if(argc!=2){
@@ -100,18 +100,18 @@ int main(int argc, char **argv){
 		}
 		printf("[%d] End accept\n",pid);
 		if((childpid = fork()) == 0) {
-			end=0;
+			int end=0;
 			int mypid=getpid();
-			char *rip;
-			char *rhostname;
+			char *rip=NULL;
+			char *rhostname=NULL;
 			
 			char * maj ="INSERT INTO client (ip,hostname, pid, connecte    d) VALUES (";
 			sendto(ear, "ip",sizeof("ip"),0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
-			recvfrom(ear,rip, sizeof(ip), 0 ,NULL, NULL);
+			recvfrom(ear,rip, sizeof(rip), 0 ,NULL, NULL);
 			sendto(ear, "hostname",sizeof("hostname"),0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
-			recvfrom(ear,rhostname, sizeof(hostname), 0 ,NULL, NULL);
+			recvfrom(ear,rhostname, sizeof(rhostname), 0 ,NULL, NULL);
 			strcat(maj,",");
-			strcat(maj,ip);
+			strcat(maj,rip);
 			strcat(maj,",");
 			strcat(maj,rhostname);
 			strcat(maj,",");
@@ -134,15 +134,16 @@ int main(int argc, char **argv){
 			while(!end){
 				//scanf("%s",buf);
 						
-				read(tun_serv[2],buf,sizeof(buf));
+				read(tun_serv[1],buf,sizeof(buf));
 				if(strcmp(buf,"quit")){
 					end=1;
 				}
 				else{
-					written = sendto(ear, buf,BUF_SIZ,0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
+					//written = 
+					sendto(ear, buf,BUF_SIZ,0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
 					printf("[%d] message envoye : %s\n",pid,buf);
 					recvfrom(ear, buf,BUF_SIZ,0,NULL,NULL);
-					write(tun_serv,buf,sizeof(buf));
+					write(tun_serv[0],buf,sizeof(buf));
 				}
 			}
 			printf("[%d] close sockaddr\n",pid);
@@ -150,7 +151,7 @@ int main(int argc, char **argv){
 			done=1;
 		}
 		else if ((childpid != 0)){//pere
-			close(tun_serv[1];
+			close(tun_serv[1]);
 			printf("[%d] have fork, the child is [%d]\n",pid,childpid);
 			demander_ordre(ordre);
 

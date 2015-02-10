@@ -101,13 +101,13 @@ int main(int argc, char *argv[]) {
 	}
 	printf("read\n");
 	recvfrom(sockfd, buf, BUF_SIZ, 0 ,NULL, NULL);
-	if(strcmp(buf,"ip"){
-		gethostname(hostname,sizeof(hostname));
-		write(sockfd,hostanme,128);
+	if(strcmp(buf,"ip")){
+		//réccuperer ip
+		write(sockfd,ip,128);
 		}
-	else if (strcmp(buf,"hostname"){
+	else if (strcmp(buf,"hostname")){
 			gethostname(hostname,sizeof(hostname));
-			write(sockfd,hostanme,128);
+			write(sockfd,hostname,128);
 		}
 	while(strcmp(buf,"quit")!=0){
 		recvfrom(sockfd, buf, BUF_SIZ, 0 ,NULL, NULL); //reception de la commande
