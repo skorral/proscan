@@ -14,7 +14,6 @@
 #include <sys/time.h>
 #include "../common/const.h"
 #include "../common/net.h"
-#include "../common/net.c"
 
 int verif( char *test){     //Cette fonction permet de vérifier la non double inscription d'un serveur dans le fichier de log
 
@@ -96,13 +95,14 @@ int main(int argc, char *argv[]) {
 	}
 	fd_out = fopen("client_out.txt","a+");
 	if(!fd_out){
-//		printf("\aERREUR: Impossible d'ouvrir le fichier: %s.\n", fd_out);
+		printf("ERREUR: Impossible d'ouvrir le fichier: \"%s\"\n", fd_out);
 	}
 	printf("read\n");
 	while(strcmp(buf,"quit")!=0){
 		recvfrom(sockfd, buf, BUF_SIZ, 0 ,NULL, NULL); //reception de la commande
 		//printf("message recu : %s\n",buf); 
 		fprintf(fd_out,"message recu : %s\n",buf);//enregistrement de la commande a executer dans le fichier de log
+		sleep(1);
 		execution_script(buf); //execution de la commande
 		resultat = fopen("resultat_script_client.txt","r"); //stockage local du resultat
                 while (fgets(s,128,resultat) != NULL) {//envoi du resultat
@@ -113,6 +113,6 @@ int main(int argc, char *argv[]) {
 	printf("Close open fd\n");
 	fclose(fd_out);	
 	close(sockfd);
-	printf("end of client\n");
+	//printf("end of client\n");
 	exit(EXIT_SUCCESS);
 }

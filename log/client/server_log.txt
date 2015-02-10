@@ -2,3 +2,7 @@
 L'adresse ip du serveur est: 192.168.48.133
 Le port du serveur est : 6001
 *****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
