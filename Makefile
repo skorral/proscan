@@ -21,7 +21,7 @@ server.o: server/server.c common/net.h common/const.h bdd/crud.h
 
 
 clean:
-	rm -rf *.o *.gch
+	rm -rf *.o *.gch *.d
 
 mrproper: clean
 	rm -rf $(EXEC)

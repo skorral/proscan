@@ -84,6 +84,8 @@ int main(int argc, char *argv[]) {
 	FILE * resultat;
 	memset(buf, 0, BUF_SIZ);
 	char s[128];
+	char *ip;
+	char *hostname;
 	if(argc<3){
 		printf("Usage : %s @server port_server\n",argv[0]);
 		exit(EXIT_FAILURE);
@@ -98,8 +100,18 @@ int main(int argc, char *argv[]) {
 		printf("ERREUR: Impossible d'ouvrir le fichier: \"%s\"\n", fd_out);
 	}
 	printf("read\n");
+	recvfrom(sockfd, buf, BUF_SIZ, 0 ,NULL, NULL);
+	if(strcmp(buf,"ip"){
+		gethostname(hostname,sizeof(hostname));
+		write(sockfd,hostanme,128);
+		}
+	else if (strcmp(buf,"hostname"){
+			gethostname(hostname,sizeof(hostname));
+			write(sockfd,hostanme,128);
+		}
 	while(strcmp(buf,"quit")!=0){
 		recvfrom(sockfd, buf, BUF_SIZ, 0 ,NULL, NULL); //reception de la commande
+		
 		//printf("message recu : %s\n",buf); 
 		fprintf(fd_out,"message recu : %s\n",buf);//enregistrement de la commande a executer dans le fichier de log
 		sleep(1);

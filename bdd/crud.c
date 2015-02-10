@@ -44,12 +44,13 @@ int bdd_delete(void){
 	return 0;
 }
 
-int bdd_update(void){
+int bdd_update(char *qry){
 	MYSQL mysql;
 	mysql_init(&mysql);
 //	int n;
 	/*mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");*/
 	if(mysql_real_connect(&mysql,"127.0.0.1","proscan","","proscan",0,NULL,0)){
+		mysql_query(&mysql,qry);
 //		n=mysql_affected_rows(mysql);
 		mysql_close(&mysql);
 	}else{      

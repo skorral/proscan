@@ -12,6 +12,32 @@
 #include "../common/net.h"
 #include "../common/const.h"
 #include <unistd.h>
+#include "../bdd/crud.h"
+
+void afficher_script(void){
+	bdd_select("SELECT script.id script.nom, script.description FROM script");
+	exit(EXIT_SUCCESS);
+}
+
+void afficher_client(void){
+	bdd_select("SELECT client.id client.hostname, client.ip FROM client WHERE client.connected=1");
+	exit(EXIT_SUCCESS);
+}
+
+int choix_script(){
+	int script=0;
+	afficher_script();
+	printf("Quel script voulez-vous executer (Entrez l'id) ? \n");
+	scanf("%d",script);
+	return script;
+}
+
+int choix_client(){
+	int client=0;
+	printf("Sur quel client (Entrez l'id) ? \n");
+	scanf("%d",client);
+	return client;
+}
 
 int demander_ordre(int ordre[2]){
 	int choix =0;
@@ -75,7 +101,26 @@ int main(int argc, char **argv){
 		printf("[%d] End accept\n",pid);
 		if((childpid = fork()) == 0) {
 			end=0;
-			mkfifo(tun_);
+			int mypid=getpid();
+			char *rip;
+			char *rhostname;
+			
+			char * maj ="INSERT INTO client (ip,hostname, pid, connecte    d) VALUES (";
+			sendto(ear, "ip",sizeof("ip"),0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
+			recvfrom(ear,rip, sizeof(ip), 0 ,NULL, NULL);
+			sendto(ear, "hostname",sizeof("hostname"),0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
+			recvfrom(ear,rhostname, sizeof(hostname), 0 ,NULL, NULL);
+			strcat(maj,",");
+			strcat(maj,ip);
+			strcat(maj,",");
+			strcat(maj,rhostname);
+			strcat(maj,",");
+			strcat(maj,mypid);
+			strcat(maj,"1");
+			strcat(maj,")");
+			bdd_insert(maj);
+//			mkfifo(tun_"%d",0666,getpid());
+//
 			sprintf(buf,"[%d] Début d'échange de commande\n",pid);
 			//printf("[%d] buffer = %s\n",pid,buf);
 /*
@@ -108,6 +153,8 @@ int main(int argc, char **argv){
 			close(tun_serv[1];
 			printf("[%d] have fork, the child is [%d]\n",pid,childpid);
 			demander_ordre(ordre);
+
+
 			close(ear);
 		}
 		else if (childpid == -1) {
