@@ -13,87 +13,57 @@
 #include "../common/const.h"
 #include <unistd.h>
 #include "../bdd/crud.h"
-#include <fnctl.h>
+#include <fcntl.h>
 
 
-void removefifo(void){
-	        unlink(pipeperso)
-}
-
-void afficher_script(void){
-	bdd_select("SELECT script.id script.nom, script.description FROM script");
+void afficher_script(char *buf2){
+	bdd_select("SELECT script.id script.nom, script.description FROM script", buf2);
+	printf("%s\n",buf2);
 	exit(EXIT_SUCCESS);
 }
 
-void afficher_client(void){
-	bdd_select("SELECT client.id client.hostname, client.ip FROM client WHERE client.connected=1");
+void afficher_client(char *buf2){
+	bdd_select("SELECT client.id client.hostname, client.ip FROM client WHERE client.connected=1",buf2);
+	printf("%s\n",buf2);
 	exit(EXIT_SUCCESS);
 }
 
-int choix_script(){
+int choix_script(char *buf2){
 	int script=0;
-	afficher_script();
+	afficher_script(buf2);
 	printf("Quel script voulez-vous executer (Entrez l'id) ? \n");
 	scanf("%d",&script);
 	return script;
 }
 
-int choix_client(){
+int choix_client(char *buf2){
 	int client=0;
+	afficher_client(buf2);
 	printf("Sur quel client (Entrez l'id) ? \n");
 	scanf("%d",&client);
 	return client;
 }
 
-int demander_ordre(int ordre[2]){
-	int choix =0;
-	int fait=0;
-	FIlE *common;
-	while(!fait){
-		printf("Que voulez-vous faire ?\n");
-		printf(" 1. Afficher les scripts disponibles\n");
-		printf(" 2. Afficher les clients connectés\n");
-		printf(" 3. Exectuter un script\n");
-		printf(" Quel est votre choix (1, 2 ou 3) ? ");
-		scanf("%d",&choix);
-		if(choix==1){
-			afficher_script();
-		}
-		else if(choix==2){
-			afficher_client();
-		}
-		else if(choix==3){
-			ordre[0]=choix_script();
-			ordre[1]=choix_client();
-		}
-		fait=1;
-	}
-	common=open(pipeperso, O_WRONLY);
-	write(common,ordre[0],strlen(ordre[0]);
-	write(common,ordre[1],strlen(ordre[1]);
-	close(common);
-	exit(EXIT_SUCCESS);
-}
-
+int demander_ordre(int ordre[2], char *buf2);
 
 int main(int argc, char **argv){
 	int ear, listener;
 	char buf[BUF_SIZ];
+	char buf2[BUF_SIZ];
 	struct sockaddr_in sockaddr;
 	socklen_t addrlen = sizeof (sockaddr);
 	memset(buf,'\0',BUF_SIZ);
 	pid_t childpid;
 	pid_t pid=getpid();
 	int done=0;
-	        if(mkfifo(pipeperso, S_IRUSR | S_IWRITE | S_IWGRP)==-1 && erno != EEXIST){
-			                printf("Cannot make pipe\n"); 
-					        }
-		if(atexit(removefifo)!= 0)
-		                printf("Error in removing fifo\n");
-	if(mkfifo(pipe_serv, S_IRUSR | S_IWRITE | S_IWGRP)==-1 && erno != EEXIST){
+	char *pipeperso=NULL;
+	char *pipe_serv=NULL;
+	if(mkfifo(pipeperso, S_IRUSR | S_IWRITE | S_IWGRP)==-1 && errno != EEXIST){
+		printf("Cannot make pipe\n"); 
+	}
+	if(mkfifo(pipe_serv, S_IRUSR | S_IWRITE | S_IWGRP)==-1 && errno != EEXIST){
 		printf("Cannot make pipe\n");
 	}
-	if(atexit(removefifo)!= 0)  printf("Error in removing fifo\n");
 	int ordre[2];
 	if(argc!=2){
 		printf("Usage : %s port_local\n", argv[0]);
@@ -118,62 +88,49 @@ int main(int argc, char **argv){
 		printf("[%d] End accept\n",pid);
 		if((childpid = fork()) == 0) {
 			int end=0;
-			FILE *common;
+			int common;
 			int mypid=getpid();
 			char *rip=NULL;
 			char *rhostname=NULL;
-			char *idclient;
+			//char *idclient;
 			int todo[2];
-			char * maj ="INSERT INTO client (ip,hostname, pid, connecte    d) VALUES (";
-			char *maj2="INSERT INTO result (idclient,id    script,result) VALUES ("
+			char * maj=NULL;
+		//	char *maj2;
 			sendto(ear, "ip",sizeof("ip"),0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
 			recvfrom(ear,rip, sizeof(rip), 0 ,NULL, NULL);
 			sendto(ear, "hostname",sizeof("hostname"),0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
 			recvfrom(ear,rhostname, sizeof(rhostname), 0 ,NULL, NULL);
-			strcat(maj,",");
-			strcat(maj,rip);
-			strcat(maj,",");
-			strcat(maj,rhostname);
-			strcat(maj,",");
-			strcat(maj,mypid);
-			strcat(maj,"1");
-			strcat(maj,")");
+			sprintf(maj,"INSERT INTO result (ip,hostname,pid,connected) VALUES (%s,%s,%d,1)",rip,rhostname,mypid);
 			bdd_insert(maj);
-		
+
 
 			sprintf(buf,"[%d] Début d'échange de commande\n",pid);
-				if(mkfifo(pipeperso, S_IRUSR | S_IWRITE | S_IWGRP)==-1 && erno != EEXIST){
-					                printf("Cannot make pipe\n"); 
-							        }
+			if(mkfifo(pipeperso, S_IRUSR | S_IWRITE | S_IWGRP)==-1 && errno != EEXIST){
+				printf("Cannot make pipe\n"); 
+			}
 			while(!end){
-				common=open(pipeperso, O_RDONLY);
-				read(common,todo[0],strlen(buf));
-				read(common,todo[1],strlen(buf));
-				if(strcmp(todo[1],"quit")){
-					end=1;
-				}
-				else{
-					sendto(ear, buf,BUF_SIZ,0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
-					printf("[%d] message envoye : %s\n",pid,buf);
-					recvfrom(ear, buf,BUF_SIZ,0,NULL,NULL);
-				
-					maj="INSERT INTO result (idclient,i    dscript,result) VALUES ()";
-					strcat(maj,todo[1]);
-					strcat(maj,",");
-					strcat(maj,todo[0]);
-					strcat(maj,",");
-					strcat(maj,buf);
-					bdd_insert(maj);
-				}
+				common=open((char *)pipeperso, O_RDONLY);
+				read(common,todo,strlen(buf));
+				//		read(common,todo[1],strlen(buf));
+				//if(strcmp(todo[1],"quit")){
+				//	end=1;
+				//}
+				//else{
+				sendto(ear, buf,BUF_SIZ,0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
+				printf("[%d] message envoye : %s\n",pid,buf);
+				recvfrom(ear, buf,BUF_SIZ,0,NULL,NULL);
+				sprintf(maj,"INSERT INTO result (idclient,idscript,result) VALUES (%d,%d,%s)",todo[1],todo[0],buf);
+				bdd_insert(maj);
+				//}
 			}
 			printf("[%d] close sockaddr\n",pid);
 			close(ear);
 			done=1;
 		}
 		else if ((childpid != 0)){//pere
-			close(tun_serv[1]);
+		//	close(tun_serv[1]);
 			printf("[%d] have fork, the child is [%d]\n",pid,childpid);
-			demander_ordre(ordre);
+			demander_ordre(ordre,buf2);
 
 
 			close(ear);
@@ -187,6 +144,46 @@ int main(int argc, char **argv){
 	printf("[%d] Close open fd\n",pid);
 	close(listener);
 	printf("[%d] End of server\n",pid);
+	exit(EXIT_SUCCESS);
+}
+
+
+int demander_ordre(int ordre[2],char *buf2){
+	int choix =0; 
+	int fait=0;
+	int common;
+	char *pipeperso=NULL;
+	char *ord=NULL;
+	while(!fait){
+		system("clear");
+		printf("Que voulez-vous faire ?\n");
+		printf(" 1. Afficher les scripts disponibles\n");
+		printf(" 2. Afficher les clients connectés\n");
+		printf(" 3. Exectuter un script\n");
+		printf(" Quel est votre choix (1, 2 ou 3) ? ");
+		scanf("%d",&choix);
+		if(choix==1){
+			system("clear");
+			afficher_script(buf2);
+		}
+		else if(choix==2){
+			system("clear");
+			afficher_client(buf2);
+		}
+		else if(choix==3){
+			system("clear");
+			ordre[0]=choix_script(buf2);
+			system("clear");
+			ordre[1]=choix_client(buf2);
+		}
+		fait=1;
+	}
+	common=open(pipeperso, O_WRONLY);
+	sprintf(ord,"%d",ordre[0]);
+	write(common,ord,strlen(ord));
+	sprintf(ord,"%d",ordre[1]);
+	write(common,ord,strlen(ord));
+	close(common);
 	exit(EXIT_SUCCESS);
 }
 

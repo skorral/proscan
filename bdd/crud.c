@@ -3,15 +3,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *bdd_select(char *qry){
+int bdd_select(char *qry,char *buf){
 	MYSQL mysql;
 	mysql_init(&mysql);
 	MYSQL_RES *result = NULL;
 	MYSQL_ROW row;
 	/*mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");*/
 	int i = 1;
-	char *buf;
-//	buf = (char *) malloc(1024);
 	if(mysql_real_connect(&mysql,"127.0.0.1","proscan","","proscan",0,NULL,0)){
 		mysql_query(&mysql,qry);
 		result = mysql_use_result(&mysql);
@@ -25,8 +23,7 @@ char *bdd_select(char *qry){
 		printf("Une erreur s'est produite lors de la connexion à la BDD!\n");
 		mysql_close(&mysql);
 	}
-	return buf;
-	//Penser a free le buffer apres chaque appel de la fonction
+	return 0;
 }
 
 int bdd_delete(void){

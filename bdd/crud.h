@@ -1,5 +1,5 @@
 /* CRAM stands for Create, Remove, Access, Modify */
-char *bdd_select(char *);
+int bdd_select(char *,char *);
 int bdd_delete(void);
 int bdd_update(char *);
 int bdd_insert(char *);
