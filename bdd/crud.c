@@ -8,15 +8,25 @@ int bdd_select(char *qry,char *buf){
 	mysql_init(&mysql);
 	MYSQL_RES *result = NULL;
 	MYSQL_ROW row;
-	/*mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");*/
-	int i = 1;
-	if(mysql_real_connect(&mysql,"127.0.0.1","proscan","","proscan",0,NULL,0)){
+	mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");
+	unsigned int i = 0;
+	unsigned int num_champs = 0;
+	if(mysql_real_connect(&mysql,"127.0.0.1","root","athemisis","proscan",0,NULL,0)){
+		printf("mysql_qry\n");
 		mysql_query(&mysql,qry);
+		printf("mysql_use_result\n");
 		result = mysql_use_result(&mysql);
+		printf("mysql_num_fields\n");
+		num_champs = mysql_num_fields(result);
+		printf("while");
 		while((row = mysql_fetch_row(result))){
-			sprintf(buf,"Result : %d\n",i);
-			i++;
+			//unsigned long *lengths=0;
+			//lengths = mysql_fetch_lengths(result);
+			for(i=0;i< num_champs;i++){
+				sprintf(buf+strlen(buf),"%s\n",row[i]);
+			}
 		}
+		
 		mysql_free_result(result);
 		mysql_close(&mysql);
 	}else{
@@ -60,14 +70,14 @@ int bdd_update(char *qry){
 int bdd_insert(char *qry){
 	MYSQL mysql;
 	mysql_init(&mysql);
-	/*mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");*/
+	mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");
 	/*char *ip;
 	char *fd;*/
 //	my_ulonglong n;
 	
 	/*strcpy(ip,addr);
 	strcpy(fd,file_descriptor);*/
-	if(mysql_real_connect(&mysql,"127.0.0.1","proscan","","proscan",0,NULL,0)){
+	if(mysql_real_connect(&mysql,"127.0.0.1","root","athemisis","proscan",0,NULL,0)){
 		mysql_query(&mysql,qry);
 		//mysql_query(&mysql,"INSERT INTO client ip:port,fd VAlUES(ip,fd)");
 	//	n=mysql_affected_rows(&mysql);

@@ -96,11 +96,11 @@ int main(int argc, char **argv){
 			int todo[2];
 			char * maj=NULL;
 		//	char *maj2;
-			sendto(ear, "ip",sizeof("ip"),0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
-			recvfrom(ear,rip, sizeof(rip), 0 ,NULL, NULL);
+			//sendto(ear, "ip",sizeof("ip"),0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
+			//recvfrom(ear,rip, sizeof(rip), 0 ,NULL, NULL);
 			sendto(ear, "hostname",sizeof("hostname"),0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
 			recvfrom(ear,rhostname, sizeof(rhostname), 0 ,NULL, NULL);
-			sprintf(maj,"INSERT INTO result (ip,hostname,pid,connected) VALUES (%s,%s,%d,1)",rip,rhostname,mypid);
+			sprintf(maj,"INSERT INTO client (ip,hostname,pid,connected) VALUES (%s,%s,%d,1)",rip,rhostname,mypid);
 			bdd_insert(maj);
 
 

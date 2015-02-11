@@ -84,8 +84,8 @@ int main(int argc, char *argv[]) {
 	FILE * resultat;
 	memset(buf, 0, BUF_SIZ);
 	char s[128];
-	char *ip;
-	char *hostname;
+	char *ip="127.0.0.1";
+	char *hostname="ubuntu";
 	if(argc<3){
 		printf("Usage : %s @server port_server\n",argv[0]);
 		exit(EXIT_FAILURE);
@@ -103,15 +103,21 @@ int main(int argc, char *argv[]) {
 	recvfrom(sockfd, buf, BUF_SIZ, 0 ,NULL, NULL);
 	if(strcmp(buf,"ip")){
 		//réccuperer ip
-		write(sockfd,ip,128);
+	//	write(sockfd,ip,128);
 		}
 	else if (strcmp(buf,"hostname")){
-			gethostname(hostname,sizeof(hostname));
+	//		gethostname(hostname,sizeof(hostname));
 			write(sockfd,hostname,128);
 		}
 	while(strcmp(buf,"quit")!=0){
 		recvfrom(sockfd, buf, BUF_SIZ, 0 ,NULL, NULL); //reception de la commande
-		
+		if(strcmp(buf,"ip")){
+			                //réccuperer ip
+	         //write(sockfd,ip,128);
+		}
+		else if (strcmp(buf,"hostname")){                                                         gethostname(hostname,sizeof(hostname));                                               write(sockfd,hostname,128);
+	        }
+		else{
 		//printf("message recu : %s\n",buf); 
 		fprintf(fd_out,"message recu : %s\n",buf);//enregistrement de la commande a executer dans le fichier de log
 		sleep(1);
@@ -121,6 +127,7 @@ int main(int argc, char *argv[]) {
 	                write(sockfd,s,128);
 		}
 		supression_fichier_resultat(); //suppression du fichier local de resulatat
+		}
 	}
 	printf("Close open fd\n");
 	fclose(fd_out);	
