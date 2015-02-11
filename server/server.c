@@ -13,6 +13,12 @@
 #include "../common/const.h"
 #include <unistd.h>
 #include "../bdd/crud.h"
+#include <fnctl.h>
+
+
+void removefifo(void){
+	        unlink(pipeperso)
+}
 
 void afficher_script(void){
 	bdd_select("SELECT script.id script.nom, script.description FROM script");
@@ -42,6 +48,7 @@ int choix_client(){
 int demander_ordre(int ordre[2]){
 	int choix =0;
 	int fait=0;
+	FIlE *common;
 	while(!fait){
 		printf("Que voulez-vous faire ?\n");
 		printf(" 1. Afficher les scripts disponibles\n");
@@ -61,6 +68,10 @@ int demander_ordre(int ordre[2]){
 		}
 		fait=1;
 	}
+	common=open(pipeperso, O_WRONLY);
+	write(common,ordre[0],strlen(ordre[0]);
+	write(common,ordre[1],strlen(ordre[1]);
+	close(common);
 	exit(EXIT_SUCCESS);
 }
 
@@ -69,14 +80,20 @@ int main(int argc, char **argv){
 	int ear, listener;
 	char buf[BUF_SIZ];
 	struct sockaddr_in sockaddr;
-//	ssize_t written=0;
 	socklen_t addrlen = sizeof (sockaddr);
 	memset(buf,'\0',BUF_SIZ);
 	pid_t childpid;
 	pid_t pid=getpid();
 	int done=0;
-	const char tun_serv[2];
-	mkfifo(tun_serv,0666);
+	        if(mkfifo(pipeperso, S_IRUSR | S_IWRITE | S_IWGRP)==-1 && erno != EEXIST){
+			                printf("Cannot make pipe\n"); 
+					        }
+		if(atexit(removefifo)!= 0)
+		                printf("Error in removing fifo\n");
+	if(mkfifo(pipe_serv, S_IRUSR | S_IWRITE | S_IWGRP)==-1 && erno != EEXIST){
+		printf("Cannot make pipe\n");
+	}
+	if(atexit(removefifo)!= 0)  printf("Error in removing fifo\n");
 	int ordre[2];
 	if(argc!=2){
 		printf("Usage : %s port_local\n", argv[0]);
@@ -101,11 +118,14 @@ int main(int argc, char **argv){
 		printf("[%d] End accept\n",pid);
 		if((childpid = fork()) == 0) {
 			int end=0;
+			FILE *common;
 			int mypid=getpid();
 			char *rip=NULL;
 			char *rhostname=NULL;
-			
+			char *idclient;
+			int todo[2];
 			char * maj ="INSERT INTO client (ip,hostname, pid, connecte    d) VALUES (";
+			char *maj2="INSERT INTO result (idclient,id    script,result) VALUES ("
 			sendto(ear, "ip",sizeof("ip"),0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
 			recvfrom(ear,rip, sizeof(rip), 0 ,NULL, NULL);
 			sendto(ear, "hostname",sizeof("hostname"),0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
@@ -119,31 +139,31 @@ int main(int argc, char **argv){
 			strcat(maj,"1");
 			strcat(maj,")");
 			bdd_insert(maj);
-//			mkfifo(tun_"%d",0666,getpid());
-//
+		
+
 			sprintf(buf,"[%d] Début d'échange de commande\n",pid);
-			//printf("[%d] buffer = %s\n",pid,buf);
-/*
-			printf("[%d] Début du test de write\n",pid);
-			if((written = sendto(ear, buf, BUF_SIZ,0, (struct sockaddr *) &sockaddr, sizeof(sockaddr)))==-1){
-				perror("problem with Written");
-				return errno;
-			}
-			printf("[%d] Fin du test du write\n",pid);
-*/
+				if(mkfifo(pipeperso, S_IRUSR | S_IWRITE | S_IWGRP)==-1 && erno != EEXIST){
+					                printf("Cannot make pipe\n"); 
+							        }
 			while(!end){
-				//scanf("%s",buf);
-						
-				read(tun_serv[1],buf,sizeof(buf));
-				if(strcmp(buf,"quit")){
+				common=open(pipeperso, O_RDONLY);
+				read(common,todo[0],strlen(buf));
+				read(common,todo[1],strlen(buf));
+				if(strcmp(todo[1],"quit")){
 					end=1;
 				}
 				else{
-					//written = 
 					sendto(ear, buf,BUF_SIZ,0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
 					printf("[%d] message envoye : %s\n",pid,buf);
 					recvfrom(ear, buf,BUF_SIZ,0,NULL,NULL);
-					write(tun_serv[0],buf,sizeof(buf));
+				
+					maj="INSERT INTO result (idclient,i    dscript,result) VALUES ()";
+					strcat(maj,todo[1]);
+					strcat(maj,",");
+					strcat(maj,todo[0]);
+					strcat(maj,",");
+					strcat(maj,buf);
+					bdd_insert(maj);
 				}
 			}
 			printf("[%d] close sockaddr\n",pid);
