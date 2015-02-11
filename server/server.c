@@ -56,8 +56,8 @@ int main(int argc, char **argv){
 	pid_t childpid;
 	pid_t pid=getpid();
 	int done=0;
-	char *pipeperso=NULL;
-	char *pipe_serv=NULL;
+	char *pipeperso="pipeperso";
+	char *pipe_serv="pipe_serv";
 	if(mkfifo(pipeperso, S_IRUSR | S_IWRITE | S_IWGRP)==-1 && errno != EEXIST){
 		printf("Cannot make pipe\n"); 
 	}
@@ -152,7 +152,7 @@ int demander_ordre(int ordre[2],char *buf2){
 	int choix =0; 
 	int fait=0;
 	int common;
-	char *pipeperso=NULL;
+	char *pipeperso="pipeperso";
 	char *ord=NULL;
 	while(!fait){
 		system("clear");
@@ -160,6 +160,7 @@ int demander_ordre(int ordre[2],char *buf2){
 		printf(" 1. Afficher les scripts disponibles\n");
 		printf(" 2. Afficher les clients connectés\n");
 		printf(" 3. Exectuter un script\n");
+		printf(" 4. Quitter et repasser en attente d'un nouveau client\n");
 		printf(" Quel est votre choix (1, 2 ou 3) ? ");
 		scanf("%d",&choix);
 		if(choix==1){
@@ -175,8 +176,8 @@ int demander_ordre(int ordre[2],char *buf2){
 			ordre[0]=choix_script(buf2);
 			system("clear");
 			ordre[1]=choix_client(buf2);
+			fait=1;
 		}
-		fait=1;
 	}
 	common=open(pipeperso, O_WRONLY);
 	sprintf(ord,"%d",ordre[0]);
