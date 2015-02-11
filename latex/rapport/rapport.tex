@@ -74,20 +74,20 @@
 	\begin{large}
 	
 	\textit{
-		Avant d’entamer ce sujet nous saisissons la présence pour exprimer les remerciements les plus sincères et nos profonds respects à notre encadrant M. Jérémy Briffaut, pour son encadrement, son assistance et son soutien considérables qui ont pu rendre ce travail possible. Ainsi que Nous le remercions aussi pour toutes les connaissances qu'il nous a apportés.}
+	Avant d’entamer ce sujet nous saisissons la présence pour exprimer les remerciements les plus sincères et nos profonds respects à notre encadrant M. Jeremy Briffaut, pour son encadrement, son assistance et son soutien considérables qui ont pu rendre ce travail possible. Ainsi que Nous le remercions aussi pour toutes les connaissances qu'il nous a apportés.}
 	
-	\textit{
-		Nous aimerions aussi gratifier M. Martial Szpieg et Pr Pascal Berthomé  pour leur amabilité de nous avoir fourni les explications nécessaires, et les conseils pertinents qui nous ont accompagnés tout au long du projet.}\end{large}
+\textit{
+Nous aimerions aussi gratifier M. Martial Szpieg et M. Pascal Berthome  pour leur amabilité de nous avoir fourni les explications nécessaires, et les conseils pertinents qui nous ont accompagnés tout au long du projet.}\end{large}
 \newpage
 \section*{{\color{red}Introduction}}
 	\paragraph{}
-		\textsl{Dans le cadre de notre formation d'ingénieurs en Sécurité et Technologies Informatiques, un projet d'application sécurité nous est soumis. Dans notre cas il s'agit de concevoir une application client/serveur permettant la supervision et l'audit de la sécurité dans un réseau. Il s'agit de nous mettre en situation de travail en binôme  sur un projet donné et sur un moyen terme. 
-		On peut utiliser l'audit d'un réseau afin de prévenir et de réparer un problème lié aux ressources informatiques dans n'importe quelconque organisme. La prévention consiste à adresser régulièrement un état des lieux afin de connaitre les faiblesses qui pourraient se traduire dans le futur en sources de menaces et vulnérabilités exploitables par les pirates.
-Quant à la réparation, l'entreprise peut exploiter l'audit de son réseau afin d'améliorer les performances de ce dernier. 	}	
+\textsl{Dans le cadre de notre formation d'ingénieurs en Sécurité et Technologies Informatiques, un projet d'application sécurité nous est soumis. Dans notre cas il s'agit de concevoir une application client/serveur permettant la supervision et l'audit de la sécurité dans un réseau. Il s'agit de nous mettre en situation de travail en binôme  sur un projet donné et sur un moyen terme. 
+On peut utiliser l'audit d'un réseau afin de prévenir et de réparer un problème lié aux ressources informatiques dans n'importe quelconque organisme. La prévention consiste à adresser régulièrement un état des lieux afin de connaitre les faiblesses qui pourraient se traduire dans le futur en sources de menaces et vulnérabilités exploitables par les pirates.
+Quant à la réparation, l'entreprise peut exploiter l'audit de son réseau afin d'ameliorer les performances de ce dernier. 	}	
 
 \textsl{
-Dans notre projet on s'intéressera aux scans afin de mettre en place un système d'audit et de sécurité.
-Le rapport est divisé en 3 grandes parties, la première est un tutoriel d'installation de l'environnement de travail adopté, la deuxième grande partie vient décrire la mise en place d'un dépôt Git qui jouera un moyen de communication sûr est agréable à l'échange de données, la troisième partie consiste en la mise en place d'une base de données où seront stockées les informations regroupées, et enfin la dernière partie est la partie codage des sockets qui joueront le rôle du moyen des communications entre le serveur et les clients afin d'échanger les données.}
+Dans notre projet on s'interssera aux scans afin de mettre en place un système d'audit et de sécurité.
+Le rapport est divisé en 3 grandes parties, la première est un tutoriel d'installation de l'environnement de travail adopté, la deuxème grande partie vient décrire la mise en place d'un dépôt Git qui jouera un moyen de communication sûr est agréable à l'échange de données, la troisème partie consiste en la mise en place d'une base de données où seront stockées les informations regroupées, et enfin la dernière partie est la partie codage des sockets qui joueront le rôle du moyen des communications entre le serveur et les clients afin d'échanger les données.}
 		
 \newpage
 \thispagestyle{empty}
@@ -164,7 +164,7 @@ Le rapport est divisé en 3 grandes parties, la première est un tutoriel d'inst
 		\begin{figure}[htp]
                         \centering
                         \includegraphics[width=0.8\textwidth,natwidth=610,natheight=642]{images/debian9.png}
-                        \caption{Choix du login du compte utilisateur précédemment créé}
+                        \caption{Choix du login du compte utilistauer précédemment créé}
 		\end{figure}
 
 		\begin{figure}[htp]
@@ -250,7 +250,7 @@ Le rapport est divisé en 3 grandes parties, la première est un tutoriel d'inst
 	\paragraph{}
 	        On aura besoin d'installer deux machines virtuelles avec la dernière distribution Ubuntu stable. Elles auront pour nom client1 et client2.
 
-		Nous avons choisi d'utiliser un Xubuntu 14.04. A récupérer sur le site officiel:
+		Nous avons choisi d'utiliser un Xubuntu 14.04. A récuperer sur le site officiel:
 		
 		http://www.ubuntu.com/download/desktop
 		
@@ -318,7 +318,7 @@ Le rapport est divisé en 3 grandes parties, la première est un tutoriel d'inst
                         \caption{Disposition du clavier.}
                 \end{figure}
 
-%		\newpage
+		\newpage
 
 		On procède dans cette étape à la création du client1.	
 		\begin{figure}[htp]
@@ -338,7 +338,7 @@ Le rapport est divisé en 3 grandes parties, la première est un tutoriel d'inst
 	
 		On est arrivé à la fin de l'installation de la machine client1, pour le deuxième client il nous suffit de faire un clone du premier client. UN clic droit sur la machine client1 puis manage puis clone.
 
-	On démarre la machine clonée puis dans /etc/hostname on modifie le nom en la nommant client2.
+	On démarre la machine clonnée puis dans /etc/hostname on modifie le nom en la nommant client2.
 		\colorbox{gray}{vim /etc/hostname}
 
 	
@@ -353,29 +353,29 @@ Le rapport est divisé en 3 grandes parties, la première est un tutoriel d'inst
 	
 		\colorbox{gray} {apt-get install git}
 
-	\subsection{{\color{blue} Gérer les dépôts}}
+	\subsection{{\color{blue} Gérer les dépots}}
 		\paragraph{}
-			Pour pouvoir utiliser le Git il va falloir tout d'abord créer un dépôt.
+			Pour pouvoir utiliser le Git il va falloir tout d'abord créer un dépot.
 			
-			\colorbox{gray}{mkdir proscan
+			\colorbox{gray}{mkdir proscan}
 
-				cd proscan
+				\colorbox{gray}{cd proscan}
 	
-				git init}
+				\colorbox{gray}{git init}
 	
-	\subsection{{\color{blue} État du dépôt}}	
+	\subsection{{\color{blue} Etat du dépot}}	
 		\paragraph{}
-		On peut avoir l'état du dépôt en utilisant les commandes:
+		On peut avoir l'état du dépot en utilisant les commandes:
 		
 			\colorbox{gray}{git diff}
 			
 			\colorbox{gray}{git diff <commit1> <commit2>}
 
-			Le git offre la possiblité de trouver les changements effectués. SI vous avez des changements pas encore commités, la commande git diff affichera les modifications éffectuées depuis le dernier commit.
+			Le git offre la possiblité de trouver les changements éffectués. SI vous avez des changements pas encore commités, la commande git diff affichera les modifications éffectuées depuis le dernier commit.
 
 			\colorbox{gray}{git status} Permet de savoir tout ce qui n'a pas encore été validé.
 	
-			\colorbox{gray}{git log} Liste les commits effectués dans le dépôt. Et ainsi voir les modifications faites dans quelle date et par qui.
+			\colorbox{gray}{git log} Liste les commits éffectués dans le dépot. Et ainsi voir les modifications faites dans quelle date et par qui.
 
 	\subsection{{\color{blue} Gestion des fichiers}}
 
@@ -388,11 +388,11 @@ Le rapport est divisé en 3 grandes parties, la première est un tutoriel d'inst
 
 			\colorbox{gray}{git add *}
 
-			Pour supprimer le fichier de l'ordinateur, ainsi que du dépôt git:		
+			Pour supprimer le fichier de l'ordinateur, ainsi que du dépot git:		
 			
 			\colorbox{gray}{git rm <nom-fichier>}
 
-			Pour déplacer le fichier de l'ordinateur, ainsi que du dépôt Git:
+			Pour dépolacer le fichier de l'ordinateur, ainsi que du dépot Git:
 			
 			\colorbox{gray}{git mv <nom-fichier> <nouvel-emplacement>}
 
@@ -403,9 +403,9 @@ Le rapport est divisé en 3 grandes parties, la première est un tutoriel d'inst
 
 			\colorbox{gray}{git pull}
 
-			Créer un commit contenant fichier1 et fichier2. Ces fichiers auront dû être au préalable ajoutés au dépôt avec la commande git add. Il s'agit de la validation d'une mofication. 
+			Créer un commit contenant fichier1 et fichier2. Ces fichiers auront dû être au préal able ajoutés au dépôt avec la commande git add. Il s'agit de la validation d'une transaction. 
 
-			Pour envoyer un commit dans la branche principale du dépôt (master):
+			Pour envoyer un commit dans la branche principale du dépot (master):
 			
 			\colorbox{gray}{git push origin master}	
 
@@ -444,8 +444,7 @@ Le rapport est divisé en 3 grandes parties, la première est un tutoriel d'inst
 \newpage
 \section{{\color{red} Client/Serveur}}
 \paragraph{}
-On utilisera les sockets afin de communiquer entre Client / Serveur, et cela à l'aide d'une adresse IP et d'un port. ces sockets permettront de gérer des flux de données entrant et sortant afin de permettre l'envoie des requêtes depuis le serveur donnant l'ordre au client de renvoyer le résultat d'un script qu'il devra exécuter, cela dit in s'appuiera sur la manière fiable à l'aide du protocole TCP/IP. 
-
+On utilisera les sockets afin de communiquer entre Client / Serveur, et celà à l'aide d'une adresse IP et d'un port. ces sockets permettront de gérer des flux de données entrant et sortant afin de permettre l'envoie des requêtes depuis le serveur donnant l'ordre au client de renvoyer le résultat d'un script qu'il devra éxecuter, celà dit in s'appuyera sur la manière fiable à l'aide du protocole TCP/IP. 
 %\newpage
 %\section{{\color{red} Interface WEB}}
 
@@ -501,14 +500,166 @@ On utilisera les sockets afin de communiquer entre Client / Serveur, et cela à 
 		\end{tabular}
 		
 \newpage
+\section{{\color{red} Interface web}}
+\paragraph{}
+L'interface web vient afficher les données stockées au niveau de la base de données. Elle est divisée en trois parties chacune de ces trois permet l'affichage des données stockées dans l'une des tables.
+
+\subsection{{\color{blue}Installation de l'environnement de travail}}
+\paragraph{}
+	Pour pouvoir utiliser l'interface web, il nous faudra passer en mode graphique du serveur.
+	
+	L'implémentation de l'interface web sur un environnement linux requiert un serveur xampp. Par défaut le serveur xampp inclut: \begin{itemize}
+	\item{MySQL}
+	\item{Php 5}
+	\item{phpMyAdmin}
+	\item{Apache 2}
+	\item{...}
+	\end{itemize}
+	
+	L'installation de xampp est très facile. Tout d'abord il faudra récupérer l'archive sur le site d'Apache Friends: https://www.apachefriends.org/fr/download.html.
+	
+	Pour changer les droits sur le fichier d'installation. Ouvrir après un terminal et en mode sudo tapez la commande suivante:
+	
+	\colorbox{gray}{sudo chmod 755 xampp-linux-*-installer.run}
+	
+	Puis tapez la commande suivante:
+	
+	\colorbox{gray}{sudo ./xampp-linux-*-installer.run}
+	
+	Ainsi vous aurez fini l'installation du serveur xampp.
+	
+	Pour démarrer le serveur, tapez la ligne de commande suivante: 
+	
+	\colorbox{gray}{sudo /opt/lampp/lampp start}
+	
+	On verra défiler un texte qui nous signalera le lancement du serveur.
+	
+	L'accès au serveur local se fait en tapant dans le champ du l'url : http://localhost.
+	
+	\begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.8\textwidth,natwidth=310,natheight=242]{images/xampp.png}
+                        \caption{Page d'acceuil du serveur xampp}
+    	    \end{figure}
+    	    
+    	    On mettra notre dossier contenant la page web au niveau de /opt/htdocs.
+    	    
+    	    \colorbox{gray}{cd /opt/htdocs}
+	
+	Pour pouvoir y accéder depuis votre navigateur, il suffira de taper: localhost/nomDuDossier
+	
+
+\newpage
 \section{{\color{red}Conclusion}}
 	
+
+%\newpage
+%\section{{\color{red}Évolution temporelle}}
+%\begin{tabular}{|l|p{12cm}|}
+%	\hline
+%		
+%		\textbf{DATE}& \textbf{OBJET} \\
+%		
+%	\hline
+%		10/09/14 & Présentation du projet et formation du binôme\\
+%	\hline
+%		17/09/14 & Début rapport. Étude du sujet. Installation VM Client\\
+%	\hline
+%		24/09/14 & Début client/server\\
+%	\hline
+%		01/10/14 & Rédaction des Makefiles de base\\
+%	\hline
+%		08/10/14 & Correction erreur client/serveur\\
+%	\hline
+%		07/11/14 & Fonction client exécution de script\\
+%	\hline
+%		10/11/14 & Premier scan. Création fonction de log client\\
+%	\hline
+%		19/11/14 & Autres script\\
+%	\hline
+%		03/12/14 & script mémoire + pattern script\\
+%	\hline
+%		08/12/14 & Scripts, ajout de la description des scripts au rapport\\
+%	\hline
+%		
+%		
+%
+%\end{tabular}
+		
+
 
 
 \newpage
 \section{{\color{red}Bibliographie}}
 %\thispagestyle{empty}		
 	\subsection*{\color{blue}Le "man" linux}
+%Une liste:
+%
+%\begin{itemize}
+%\item un item
+%\item un autre item
+%\end{itemize}
+%
+%~\\
+%
+%Une énumération:
+%\begin{enumerate}
+%\item le premier item
+%\item le deuxième
+%\end{enumerate}
+%
+%
+%\subsection{Installation du client}
+%
+%La figure~\ref{fig:tux} représente Tux, la mascotte de Linux.
+%
+%\begin{figure}[h!]
+%	\centering
+%	\includegraphics[scale=0.3]{images/tux.png}
+%	\caption{Tux} 
+%	\label{fig:tux}
+%\end{figure}
+%
+%\subsection{Insérer du code}
+%
+%Le listing~\ref{list:helloWorld} donne un exemple de programme C.    
+%    
+%\begin{lstlisting}[caption=Hello World en C, label=list:helloWorld]
+%#include <stdio.h>
+%
+%int main(int argc, char *argv[])
+%{
+%  printf("%s","Hello World!");
+%  return 0;
+%}
+%\end{lstlisting}
+%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\newpage 
+%\section{Divers}
+%
+%\subsection{Compilation}
+%
+%Installer Latex sur Ubuntu 13.04: %TODO installation sur la machine hôte
+%\begin{lstlisting}
+%$ sudo apt-get install texlive
+%\end{lstlisting}
+%
+%Compiler le fichier .tex:
+%\begin{lstlisting}
+%$ pdflatex <FileName>.tex
+%\end{lstlisting}
+%
+%Vous aurez besoin de compiler à deux reprises pour obtenir la table des matières et les références. 
+%
+%\subsection{Quelques liens utiles}
+%
+%\begin{itemize}
+%\item \url{https://fr.wikibooks.org/wiki/LaTeX}
+%\item \url{http://tobi.oetiker.ch/lshort/lshort.pdf}
+%\end{itemize}
 
 
 \end{document}
