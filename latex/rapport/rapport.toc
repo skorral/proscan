@@ -25,14 +25,18 @@
 \contentsline {subsection}{\numberline {3.3}{\color {blue}Result}}{16}
 \contentsline {paragraph}{Table Result}{16}
 \contentsline {section}{\numberline {4}{\color {red} Client/Serveur}}{17}
+\contentsline {subsection}{\numberline {4.1}\color {blue}Client}{17}
+\contentsline {paragraph}{Fonctionnement}{17}
+\contentsline {subsection}{\numberline {4.2}\color {blue}Serveur}{17}
+\contentsline {paragraph}{Fonctionnement}{17}
+\contentsline {paragraph}{Le menu}{17}
 \contentsline {paragraph}{}{17}
-\contentsline {section}{\numberline {5}{\color {red} Script }}{18}
-\contentsline {paragraph}{Permissions}{18}
-\contentsline {subsection}{\numberline {5.1}{\color {blue}En Tant qu'utilisateur}}{18}
-\contentsline {subsection}{\numberline {5.2}{\color {blue}En Tant qu'administrateur}}{18}
-\contentsline {section}{\numberline {6}{\color {red} Interface web}}{19}
-\contentsline {paragraph}{}{19}
-\contentsline {subsection}{\numberline {6.1}{\color {blue}Installation de l'environnement de travail}}{19}
-\contentsline {paragraph}{}{19}
-\contentsline {section}{\numberline {7}{\color {red}Conclusion}}{20}
-\contentsline {section}{\numberline {8}{\color {red}Bibliographie}}{21}
+\contentsline {section}{\numberline {5}{\color {red} Interface WEB}}{18}
+\contentsline {section}{\numberline {6}{\color {red} Script }}{19}
+\contentsline {paragraph}{Permissions}{19}
+\contentsline {section}{\numberline {7}{\color {red} Interface web}}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {subsection}{\numberline {7.1}{\color {blue}Installation de l'environnement de travail}}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {section}{\numberline {8}{\color {red}Conclusion}}{21}
+\contentsline {section}{\numberline {9}{\color {red}Bibliographie}}{22}

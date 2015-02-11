@@ -443,17 +443,32 @@ Le rapport est divisé en 3 grandes parties, la première est un tutoriel d'inst
 		
 \newpage
 \section{{\color{red} Client/Serveur}}
-\paragraph{}
-On utilisera les sockets afin de communiquer entre Client / Serveur, et celà à l'aide d'une adresse IP et d'un port. ces sockets permettront de gérer des flux de données entrant et sortant afin de permettre l'envoie des requêtes depuis le serveur donnant l'ordre au client de renvoyer le résultat d'un script qu'il devra éxecuter, celà dit in s'appuyera sur la manière fiable à l'aide du protocole TCP/IP. 
-%\newpage
-%\section{{\color{red} Interface WEB}}
+	\subsection{\color{blue}Client}
+		\paragraph{Fonctionnement}
+			Le client ouvre la connexion vers le serveur dont l'adresse lui est passée en paramètre. Ensuite il attend de recevoir le script à exécuter. 
+	\subsection{\color{blue}Serveur}
+		\paragraph{Fonctionnement}
+			Le serveur démarre, écoute sur une socket. Lorsqu'une connexion entrante arrive sur la socket, le serveur fork. Le fils accepte la connexion tandis que le père lance le menu afin de recevoir la commande à envoyer. Une fois la commande enregistrer le serveur l'écrit dans un tube nommé puis envoi un signal au fils qui communique avec le client choisi. Ainsi le fils sait qu'il doit lire le tube puis envoyer le script à exécuter au client. Ceci fait il attend le résultat qu'il enregistre dans la base de données.
+		\paragraph{Le menu}
+			4 choix sont disponible : 
+			\begin{itemize}
+				\item 1. Afficher la liste des scripts
+				\item 2. Afficher la liste des clients connectés
+				\item 3. Choix un script à exécuter
+				\item 4. Ne rien faire et repasser à l'attente d'une connexion entrante.
+			\end{itemize}
+		
+		
+%\paragraph{}
+%On utilisera les sockets afin de communiquer entre Client / Serveur, et celà à l'aide d'une adresse IP et d'un port. ces sockets permettront de gérer des flux de données entrant et sortant afin de permettre l'envoie des requêtes depuis le serveur donnant l'ordre au client de renvoyer le résultat d'un script qu'il devra éxecuter, celà dit in s'appuyera sur la manière fiable à l'aide du protocole TCP/IP. 
+
 
 
 \newpage
 \section{{\color{red} Script }}
 	\paragraph{Permissions}
 		Bien que la majorité de nos scripts puissent s'exécuter avec les permissions d'un utilisateur, certain d'entre eux nécessitent les droits d'administrateur.\\
-	\subsection{{\color{blue}En Tant qu'utilisateur}}
+
 		\begin{tabular}{|l|p{12cm}|}
 			\hline
 				\textbf{N°}&\textbf{Résultats}\\
@@ -485,17 +500,6 @@ On utilisera les sockets afin de communiquer entre Client / Serveur, et celà à
 				14 & Affiche l'état de la mémoire de la partition courante.\\
 			\hline
 				17 & Vérification de l'intégrité de /bin, /usr/bin, /sbin, /usr/sbin.\\
-			\hline
-		\end{tabular}
-			
-	\subsection{{\color{blue}En Tant qu'administrateur}}
-		\begin{tabular}{|l|p{12cm}|}
-			\hline
-			\textbf{N°}&\textbf{Résultats}\\
-			\hline
-				15 & Affichage de la dernière connexion local.\\
-			\hline
-				16 & Affiche les règles iptables pour filter, nat et mangle .\\
 			\hline
 		\end{tabular}
 		

@@ -23,7 +23,7 @@ int verif( char *test){     //Cette fonction permet de vérifier la non double i
 	if((fichier = fopen("../log/client/server_log.txt","a+"))==NULL){
 		perror("[CLIENT] - ERROR in fopen");
 		return -1;
-	}       
+	}
 	while(fgets(s,128,fichier) != NULL){
 		if(strcmp(s,test) == 0){
 			fclose(fichier);
@@ -115,10 +115,12 @@ int main(int argc, char *argv[]) {
 			                //réccuperer ip
 	         //write(sockfd,ip,128);
 		}
-		else if (strcmp(buf,"hostname")){                                                         gethostname(hostname,sizeof(hostname));                                               write(sockfd,hostname,128);
+		else if (strcmp(buf,"hostname")){
+			gethostname(hostname,sizeof(hostname));
+			write(sockfd,hostname,128);
 	        }
 		else{
-		//printf("message recu : %s\n",buf); 
+		//printf("message recu : %s\n",buf);
 		fprintf(fd_out,"message recu : %s\n",buf);//enregistrement de la commande a executer dans le fichier de log
 		sleep(1);
 		execution_script(buf); //execution de la commande
@@ -130,7 +132,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 	printf("Close open fd\n");
-	fclose(fd_out);	
+	fclose(fd_out);
 	close(sockfd);
 	//printf("end of client\n");
 	exit(EXIT_SUCCESS);
