@@ -17,13 +17,13 @@
 
 
 void afficher_script(char *buf2){
-	bdd_select("SELECT script.id script.nom, script.description FROM script", buf2);
+	bdd_select("SELECT script.id, script.nom, script.description FROM script", buf2);
 	printf("%s\n",buf2);
 	exit(EXIT_SUCCESS);
 }
 
 void afficher_client(char *buf2){
-	bdd_select("SELECT client.id client.hostname, client.ip FROM client WHERE client.connected=1",buf2);
+	bdd_select("SELECT client.id, client.hostname, client.ip FROM client WHERE client.connected=1",buf2);
 	printf("%s\n",buf2);
 	exit(EXIT_SUCCESS);
 }

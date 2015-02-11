@@ -1,0 +1,16 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {french}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Client - Serveur}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Client}{6}{0}{2}
+\beamer@sectionintoc {3}{Base de donn\IeC {\'e}es}{7}{0}{3}
+\beamer@subsectionintoc {3}{1}{Client}{8}{0}{3}
+\beamer@subsectionintoc {3}{2}{Script}{9}{0}{3}
+\beamer@subsectionintoc {3}{3}{Result}{10}{0}{3}
+\beamer@sectionintoc {4}{Script}{11}{0}{4}
+\beamer@sectionintoc {5}{Interface web}{13}{0}{5}
+\beamer@subsectionintoc {5}{1}{Sous-titre}{14}{0}{5}
+\beamer@subsectionintoc {5}{2}{2eme sous-titre}{15}{0}{5}
+\beamer@sectionintoc {6}{Bilan}{16}{0}{6}
+\beamer@subsectionintoc {6}{1}{Pistes \IeC {\`a} explorer}{17}{0}{6}
+\beamer@subsectionintoc {6}{2}{Conclusion}{18}{0}{6}

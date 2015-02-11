@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.2.4)  10 FEB 2015 11:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.2.4)  11 FEB 2015 19:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -639,45 +639,51 @@ File: images/demarrerISO5.png Graphic file (type png)
 <use images/demarrerISO5.png>
 Package pdftex.def Info: images/demarrerISO5.png used on input line 317.
 (pdftex.def)             Requested size: 352.81552pt x 200.42967pt.
-
-<images/demarrerISO6.png, id=111, 728.7225pt x 416.55624pt>
+ [11 <./images/demarrerISO5.png>]
+<images/demarrerISO6.png, id=115, 728.7225pt x 416.55624pt>
 File: images/demarrerISO6.png Graphic file (type png)
 
 <use images/demarrerISO6.png>
 Package pdftex.def Info: images/demarrerISO6.png used on input line 326.
 (pdftex.def)             Requested size: 352.81552pt x 201.67358pt.
- [11 <./images/demarrerISO5.png> <./images/demarrerISO6.png>] <images/demarrerI
-SO7.png, id=117, 703.62875pt x 339.2675pt>
+ [12 <./images/demarrerISO6.png>]
+<images/demarrerISO7.png, id=120, 703.62875pt x 339.2675pt>
 File: images/demarrerISO7.png Graphic file (type png)
 
 <use images/demarrerISO7.png>
 Package pdftex.def Info: images/demarrerISO7.png used on input line 335.
 (pdftex.def)             Requested size: 352.81552pt x 170.11476pt.
- [12 <./images/demarrerISO7.png>] [13] [14]
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 456--457
+ [13 <./images/demarrerISO7.png>] [14] [15]
+[16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 455--456
 
  []
 
-[16] [17] [18] (./rapport.aux) ) 
+[18] <images/xampp.png, id=143, 1371.1225pt x 770.88pt>
+File: images/xampp.png Graphic file (type png)
+ <use images/xampp.png>
+Package pdftex.def Info: images/xampp.png used on input line 541.
+(pdftex.def)             Requested size: 352.81552pt x 198.35384pt.
+
+[19 <./images/xampp.png>] [20] [21] (./rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 7318 strings out of 493108
- 101764 string characters out of 6140726
+ 7323 strings out of 493108
+ 101856 string characters out of 6140726
  187541 words of memory out of 5000000
- 10616 multiletter control sequences out of 15000+600000
+ 10620 multiletter control sequences out of 15000+600000
  38992 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,9n,35p,623b,608s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.
-enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fo
-nts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utm
-r8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/tex
-mf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on rapport.pdf (23 pages, 1413356 bytes).
+ 36i,9n,35p,621b,608s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fon
+ts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
+r/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/font
+s/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8
+a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on rapport.pdf (26 pages, 1645154 bytes).
 PDF statistics:
- 165 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
+ 176 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 156 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
