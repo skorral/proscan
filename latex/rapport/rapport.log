@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.2.4)  12 FEB 2015 00:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.2.4)  12 FEB 2015 00:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -303,19 +303,19 @@ File: pppdftex.def 2013/08/25 v0.4v Pdfpages driver for pdfTeX (AM)
 ) (./rapport.aux)
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 41.
 
 (/usr/share/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -363,9 +363,9 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \c@lstlisting=\count119
-LaTeX Info: Redefining \degres on input line 42.
-LaTeX Info: Redefining \dots on input line 42.
-LaTeX Info: Redefining \up on input line 42.
+LaTeX Info: Redefining \degres on input line 41.
+LaTeX Info: Redefining \dots on input line 41.
+LaTeX Info: Redefining \up on input line 41.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -405,22 +405,22 @@ LaTeX Info: Redefining \up on input line 42.
 <images/logo.png, id=1, 402.50375pt x 99.37125pt>
 File: images/logo.png Graphic file (type png)
  <use images/logo.png>
-Package pdftex.def Info: images/logo.png used on input line 48.
+Package pdftex.def Info: images/logo.png used on input line 47.
 (pdftex.def)             Requested size: 352.81552pt x 87.10428pt.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 52.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 51.
 
 (/usr/share/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 63.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 62.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/logo.png (PNG cop
 y)>]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 71.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 70.
 
 (/usr/share/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
@@ -442,151 +442,151 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  [4]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 101.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 100.
  <images/debian1.png, id=23, 591.20876pt x 398.48875pt>
 File: images/debian1.png Graphic file (type png)
 
 <use images/debian1.png>
-Package pdftex.def Info: images/debian1.png used on input line 118.
+Package pdftex.def Info: images/debian1.png used on input line 117.
 (pdftex.def)             Requested size: 352.81552pt x 237.81212pt.
 
 <images/debian2.png, id=25, 753.81625pt x 545.03625pt>
 File: images/debian2.png Graphic file (type png)
 
 <use images/debian2.png>
-Package pdftex.def Info: images/debian2.png used on input line 124.
+Package pdftex.def Info: images/debian2.png used on input line 123.
 (pdftex.def)             Requested size: 352.81552pt x 255.09424pt.
  <images/debian3.png, id=26, 774.895pt x 329.23pt>
 File: images/debian3.png Graphic file (type png)
 
 <use images/debian3.png>
-Package pdftex.def Info: images/debian3.png used on input line 130.
+Package pdftex.def Info: images/debian3.png used on input line 129.
 (pdftex.def)             Requested size: 352.81552pt x 149.90034pt.
  <images/debian4.png, id=27, 758.835pt x 254.9525pt>
 File: images/debian4.png Graphic file (type png)
 
 <use images/debian4.png>
-Package pdftex.def Info: images/debian4.png used on input line 136.
+Package pdftex.def Info: images/debian4.png used on input line 135.
 (pdftex.def)             Requested size: 352.81552pt x 118.54001pt.
  <images/debian5.png, id=28, 755.82375pt x 238.8925pt>
 File: images/debian5.png Graphic file (type png)
 
 <use images/debian5.png>
-Package pdftex.def Info: images/debian5.png used on input line 142.
+Package pdftex.def Info: images/debian5.png used on input line 141.
 (pdftex.def)             Requested size: 352.81552pt x 111.51399pt.
  <images/debian6.png, id=29, 752.8125pt x 398.48875pt>
 File: images/debian6.png Graphic file (type png)
 
 <use images/debian6.png>
-Package pdftex.def Info: images/debian6.png used on input line 148.
+Package pdftex.def Info: images/debian6.png used on input line 147.
 (pdftex.def)             Requested size: 352.81552pt x 186.76074pt.
  <images/debian7.png, id=30, 741.77126pt x 206.7725pt>
 File: images/debian7.png Graphic file (type png)
 
 <use images/debian7.png>
-Package pdftex.def Info: images/debian7.png used on input line 154.
+Package pdftex.def Info: images/debian7.png used on input line 153.
 (pdftex.def)             Requested size: 352.81552pt x 98.35046pt.
  <images/debian8.png, id=31, 718.685pt x 268.00125pt>
 File: images/debian8.png Graphic file (type png)
 
 <use images/debian8.png>
-Package pdftex.def Info: images/debian8.png used on input line 160.
+Package pdftex.def Info: images/debian8.png used on input line 159.
 (pdftex.def)             Requested size: 352.81552pt x 131.5712pt.
 
 <images/debian9.png, id=32, 755.82375pt x 221.82875pt>
 File: images/debian9.png Graphic file (type png)
 
 <use images/debian9.png>
-Package pdftex.def Info: images/debian9.png used on input line 166.
+Package pdftex.def Info: images/debian9.png used on input line 165.
 (pdftex.def)             Requested size: 352.81552pt x 103.54869pt.
 
 <images/debian10.png, id=33, 728.7225pt x 189.70876pt>
 File: images/debian10.png Graphic file (type png)
 
 <use images/debian10.png>
-Package pdftex.def Info: images/debian10.png used on input line 172.
+Package pdftex.def Info: images/debian10.png used on input line 171.
 (pdftex.def)             Requested size: 352.81552pt x 91.84653pt.
  <images/debian11.png, id=34, 746.79pt x 197.73875pt>
 File: images/debian11.png Graphic file (type png)
 
 <use images/debian11.png>
-Package pdftex.def Info: images/debian11.png used on input line 178.
+Package pdftex.def Info: images/debian11.png used on input line 177.
 (pdftex.def)             Requested size: 352.81552pt x 93.41998pt.
 
 <images/debian12.png, id=35, 752.8125pt x 235.88126pt>
 File: images/debian12.png Graphic file (type png)
 
 <use images/debian12.png>
-Package pdftex.def Info: images/debian12.png used on input line 184.
+Package pdftex.def Info: images/debian12.png used on input line 183.
 (pdftex.def)             Requested size: 352.81552pt x 110.55106pt.
 
 <images/debian13.png, id=36, 760.8425pt x 191.71625pt>
 File: images/debian13.png Graphic file (type png)
 
 <use images/debian13.png>
-Package pdftex.def Info: images/debian13.png used on input line 190.
+Package pdftex.def Info: images/debian13.png used on input line 189.
 (pdftex.def)             Requested size: 352.81552pt x 88.90433pt.
 
 <images/debian14.png, id=37, 765.86125pt x 285.065pt>
 File: images/debian14.png Graphic file (type png)
 
 <use images/debian14.png>
-Package pdftex.def Info: images/debian14.png used on input line 196.
+Package pdftex.def Info: images/debian14.png used on input line 195.
 (pdftex.def)             Requested size: 352.81552pt x 131.32288pt.
 
 <images/debian15.png, id=38, 765.86125pt x 416.55624pt>
 File: images/debian15.png Graphic file (type png)
 
 <use images/debian15.png>
-Package pdftex.def Info: images/debian15.png used on input line 202.
+Package pdftex.def Info: images/debian15.png used on input line 201.
 (pdftex.def)             Requested size: 352.81552pt x 191.89786pt.
 
 <images/debian16.png, id=39, 731.73375pt x 339.2675pt>
 File: images/debian16.png Graphic file (type png)
 
 <use images/debian16.png>
-Package pdftex.def Info: images/debian16.png used on input line 208.
+Package pdftex.def Info: images/debian16.png used on input line 207.
 (pdftex.def)             Requested size: 352.81552pt x 163.58165pt.
 
 <images/debian17.png, id=40, 759.83875pt x 534.99875pt>
 File: images/debian17.png Graphic file (type png)
 
 <use images/debian17.png>
-Package pdftex.def Info: images/debian17.png used on input line 214.
+Package pdftex.def Info: images/debian17.png used on input line 213.
 (pdftex.def)             Requested size: 352.81552pt x 248.4208pt.
 
 <images/debian18.png, id=41, 761.84625pt x 534.99875pt>
 File: images/debian18.png Graphic file (type png)
 
 <use images/debian18.png>
-Package pdftex.def Info: images/debian18.png used on input line 220.
+Package pdftex.def Info: images/debian18.png used on input line 219.
 (pdftex.def)             Requested size: 352.81552pt x 247.75958pt.
 
 <images/debian19.png, id=42, 740.7675pt x 238.8925pt>
 File: images/debian19.png Graphic file (type png)
 
 <use images/debian19.png>
-Package pdftex.def Info: images/debian19.png used on input line 226.
+Package pdftex.def Info: images/debian19.png used on input line 225.
 (pdftex.def)             Requested size: 352.81552pt x 113.7813pt.
 
 <images/debian20.png, id=43, 773.89125pt x 368.37625pt>
 File: images/debian20.png Graphic file (type png)
 
 <use images/debian20.png>
-Package pdftex.def Info: images/debian20.png used on input line 232.
+Package pdftex.def Info: images/debian20.png used on input line 231.
 (pdftex.def)             Requested size: 352.81552pt x 167.94308pt.
  <images/debian21.png, id=44, 738.76pt x 262.9825pt>
 File: images/debian21.png Graphic file (type png)
 
 <use images/debian21.png>
-Package pdftex.def Info: images/debian21.png used on input line 238.
+Package pdftex.def Info: images/debian21.png used on input line 237.
 (pdftex.def)             Requested size: 352.81552pt x 125.59212pt.
 
 <images/debian22.png, id=45, 748.7975pt x 165.61874pt>
 File: images/debian22.png Graphic file (type png)
 
 <use images/debian22.png>
-Package pdftex.def Info: images/debian22.png used on input line 244.
+Package pdftex.def Info: images/debian22.png used on input line 243.
 (pdftex.def)             Requested size: 352.81552pt x 78.0354pt.
  [1 <./images/debian1.png>] [2 <./images/debian2.png> <./images/debian3.png> <.
 /images/debian4.png>] [3 <./images/debian5.png> <./images/debian6.png> <./image
@@ -601,28 +601,28 @@ File: images/vmwareworkstationubuntu.png Graphic file (type png)
 
 <use images/vmwareworkstationubuntu.png>
 Package pdftex.def Info: images/vmwareworkstationubuntu.png used on input line 
-269.
+268.
 (pdftex.def)             Requested size: 352.81552pt x 233.93404pt.
 
 <images/demarrerISO.png, id=91, 729.72626pt x 537.00626pt>
 File: images/demarrerISO.png Graphic file (type png)
 
 <use images/demarrerISO.png>
-Package pdftex.def Info: images/demarrerISO.png used on input line 285.
+Package pdftex.def Info: images/demarrerISO.png used on input line 284.
 (pdftex.def)             Requested size: 352.81552pt x 259.6365pt.
 
 <images/demarrerISO2.png, id=92, 732.7375pt x 452.69125pt>
 File: images/demarrerISO2.png Graphic file (type png)
 
 <use images/demarrerISO2.png>
-Package pdftex.def Info: images/demarrerISO2.png used on input line 293.
+Package pdftex.def Info: images/demarrerISO2.png used on input line 292.
 (pdftex.def)             Requested size: 352.81552pt x 217.97318pt.
 
 <images/demarrerISO3.png, id=93, 724.7075pt x 415.5525pt>
 File: images/demarrerISO3.png Graphic file (type png)
 
 <use images/demarrerISO3.png>
-Package pdftex.def Info: images/demarrerISO3.png used on input line 301.
+Package pdftex.def Info: images/demarrerISO3.png used on input line 300.
 (pdftex.def)             Requested size: 352.81552pt x 202.30995pt.
  [8 <./images/vmwareworkstationubuntu.png>]
 [9 <./images/demarrerISO.png> <./images/demarrerISO2.png>]
@@ -630,46 +630,46 @@ Package pdftex.def Info: images/demarrerISO3.png used on input line 301.
 File: images/demarrerISO4.png Graphic file (type png)
 
 <use images/demarrerISO4.png>
-Package pdftex.def Info: images/demarrerISO4.png used on input line 309.
+Package pdftex.def Info: images/demarrerISO4.png used on input line 308.
 (pdftex.def)             Requested size: 352.81552pt x 197.40475pt.
  [10 <./images/demarrerISO3.png> <./images/demarrerISO4.png>] <images/demarrerI
 SO5.png, id=110, 729.72626pt x 414.54875pt>
 File: images/demarrerISO5.png Graphic file (type png)
 
 <use images/demarrerISO5.png>
-Package pdftex.def Info: images/demarrerISO5.png used on input line 317.
+Package pdftex.def Info: images/demarrerISO5.png used on input line 316.
 (pdftex.def)             Requested size: 352.81552pt x 200.42967pt.
  [11 <./images/demarrerISO5.png>]
 <images/demarrerISO6.png, id=115, 728.7225pt x 416.55624pt>
 File: images/demarrerISO6.png Graphic file (type png)
 
 <use images/demarrerISO6.png>
-Package pdftex.def Info: images/demarrerISO6.png used on input line 326.
+Package pdftex.def Info: images/demarrerISO6.png used on input line 325.
 (pdftex.def)             Requested size: 352.81552pt x 201.67358pt.
  [12 <./images/demarrerISO6.png>]
 <images/demarrerISO7.png, id=120, 703.62875pt x 339.2675pt>
 File: images/demarrerISO7.png Graphic file (type png)
 
 <use images/demarrerISO7.png>
-Package pdftex.def Info: images/demarrerISO7.png used on input line 335.
+Package pdftex.def Info: images/demarrerISO7.png used on input line 334.
 (pdftex.def)             Requested size: 352.81552pt x 170.11476pt.
  [13 <./images/demarrerISO7.png>] [14] [15]
-[16] [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 471--472
+[16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 463--464
 
  []
 
-[19] <images/xampp.png, id=146, 1371.1225pt x 770.88pt>
+[18] <images/xampp.png, id=143, 1371.1225pt x 770.88pt>
 File: images/xampp.png Graphic file (type png)
  <use images/xampp.png>
-Package pdftex.def Info: images/xampp.png used on input line 546.
+Package pdftex.def Info: images/xampp.png used on input line 538.
 (pdftex.def)             Requested size: 352.81552pt x 198.35384pt.
 
-[20 <./images/xampp.png>] [21] [22] (./rapport.aux) ) 
+[19 <./images/xampp.png>] [20] [21] (./rapport.aux) ) 
 Here is how much of TeX's memory you used:
  7323 strings out of 493108
  101856 string characters out of 6140726
- 187541 words of memory out of 5000000
+ 187543 words of memory out of 5000000
  10620 multiletter control sequences out of 15000+600000
  38992 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -680,10 +680,10 @@ cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
 r/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/font
 s/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8
 a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on rapport.pdf (27 pages, 1646066 bytes).
+Output written on rapport.pdf (26 pages, 1645847 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
+ 176 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

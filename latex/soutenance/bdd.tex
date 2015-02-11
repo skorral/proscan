@@ -4,8 +4,11 @@
 		\begin{frame}
 		    \frametitle{\textbf{client}}
 			\begin{itemize}
-				 \item 
-				 \item 
+				\item id : identifiant auto-indexé, clé primaire
+				\item ip : adresse ip du client
+				\item hmac : hmac du client (unique)
+				\item hostname : Nom d'hôte du client
+				\item pid : pid du processus chargé de communiquer avec ce client
 			\end{itemize}
 		\end{frame}
 
@@ -13,8 +16,10 @@
 	\begin{frame}
 		\frametitle{\textbf{script}}
 		\begin{itemize}
-			\item 
-			\item 
+				\item id : identifiant auto-indexé, clé primaire
+				\item nom : Nom du script
+				\item description : Description rapide du script
+				\item code : code du script
 		\end{itemize}
 	\end{frame}
 
@@ -22,8 +27,10 @@
 	\begin{frame}
 		\frametitle{\textbf{result}}
 		\begin{itemize}
-			\item
-			\item
+				\item id : identifiant auto-indexé, clé primaire
+				\item idclient : Identifiant du client
+				\item idscrip : Identifiant du script
+				\item result : résultat du script
 		\end{itemize}
 	\end{frame}
 
