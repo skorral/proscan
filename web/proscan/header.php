@@ -14,10 +14,10 @@
 			<a href="http://localhost/proscan"><img src="http://localhost/proscan/img/insa.png" class="h_logo" alt="Blogin" title=""></a>
 			<nav>
 				<ul class="main_nav">
-					<li class="current"><a href="#">Acceuil</a></li>
-					
+					<li class="current"><a href="#">Accueil</a></li>
+
 					<li><a href="#">Informations</a></li>
-					
+
 					<li><a href="#">Contact</a></li>
 				</ul>
 			</nav>
