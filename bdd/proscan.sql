@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 10 Février 2015 à 14:35
+-- Généré le :  Jeu 12 Février 2015 à 01:08
 -- Version du serveur :  10.0.15-MariaDB-log
 -- Version de PHP :  5.6.5
 
@@ -28,19 +28,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `client` (
   `id` int(11) NOT NULL,
-  `ip` varchar(20) NOT NULL,
-  `hmac` varchar(50) NOT NULL,
   `hostname` varchar(50) NOT NULL,
-  `pid` int(11) NOT NULL
+  `pid` int(11) NOT NULL,
+  `connected` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `client`
 --
 
-INSERT INTO `client` (`id`, `ip`, `hmac`, `hostname`, `pid`) VALUES
-(1, '127.0.0.1', '', '', 0),
-(2, '192.168.0.1', '', '', 0);
+INSERT INTO `client` (`id`, `hostname`, `pid`, `connected`) VALUES
+(1, '', 0, 0),
+(2, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -64,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `result` (
 CREATE TABLE IF NOT EXISTS `script` (
   `id` int(11) NOT NULL,
   `nom` varchar(10) NOT NULL,
-  `Description` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
   `code` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
@@ -72,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `script` (
 -- Contenu de la table `script`
 --
 
-INSERT INTO `script` (`id`, `nom`, `Description`, `code`) VALUES
+INSERT INTO `script` (`id`, `nom`, `description`, `code`) VALUES
 (1, '01', 'Hostname, Interfaces réseaux, nom de la distribution, version de la distribution, version du noyau, table de routage.', '#!/bin/bash\r\n\r\n# Affichage du hostname\r\necho -ne "Le Hostname est:\\n"\r\nhostname\r\n\r\n# Affichage des adresse IP des interfaces réseaux\r\ninterfaces=$(ifconfig | grep Link | awk -F" " ''{print $1}'')\r\nfor interface in $interfaces\r\ndo\r\n        echo -ne  "\\nL''adresse IP de$interfaceest:\\n"\r\n        ip addr | grep inet | grep $interface$ | awk -F" " ''{print $2}''\r\ndone\r\n\r\n# Affichage du nom de la distribution\r\necho -ne "\\nLa distribution est:\\n"\r\nlsb_release -d | awk -F":       " ''{print $2}''\r\n\r\n# Affichage de la version la distribution\r\necho -ne "\\nLa version de la distribution est:\\n"\r\nlsb_release -r | awk -F" " ''{print $2}''\r\n\r\n# Affichage de la version du noyau\r\necho -ne "\\nLa version du noyau est:\\n"\r\nuname -sr \r\n\r\n# Affichage de la table de routage de la machine\r\necho -ne "\\nLa table de routage est:\\n"\r\nroute\r\n\r\necho -ne "Fin de l''éxécution du script\\n"\r\n'),
 (2, '02', 'Espace des partitions montées.', '#!/bin/bash\r\n#Affichage de l''espace des partitions montées\r\ndf -h\r\n'),
 (3, '03', 'Affiche les connections internet actives.', '#!/bin/bash\r\nnetstat -ntl\r\n'),

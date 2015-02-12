@@ -16,16 +16,16 @@
 #include <fcntl.h>
 
 
-void afficher_script(char *buf2){
-	bdd_select("SELECT script.id, script.nom, script.description FROM script", buf2);
+int afficher_script(char *buf2){
+	bdd_select("SELECT script.id, script.description FROM script", buf2);
 	printf("%s\n",buf2);
-	exit(EXIT_SUCCESS);
+	return 0;
 }
 
-void afficher_client(char *buf2){
+int afficher_client(char *buf2){
 	bdd_select("SELECT client.id, client.hostname, client.ip FROM client WHERE client.connected=1",buf2);
 	printf("%s\n",buf2);
-	exit(EXIT_SUCCESS);
+	return 0;
 }
 
 int choix_script(char *buf2){
@@ -45,6 +45,7 @@ int choix_client(char *buf2){
 }
 
 int demander_ordre(int ordre[2], char *buf2);
+
 
 int main(int argc, char **argv){
 	int ear, listener;
@@ -85,50 +86,36 @@ int main(int argc, char **argv){
 			perror(argv[0]);
 			exit(EXIT_FAILURE);
 		}
-		printf("[%d] End accept\n",pid);
 		if((childpid = fork()) == 0) {
-			int end=0;
 			int common;
 			int mypid=getpid();
-			char *rip=NULL;
 			char *rhostname=NULL;
-			//char *idclient;
 			int todo[2];
 			char * maj=NULL;
-		//	char *maj2;
-			//sendto(ear, "ip",sizeof("ip"),0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
-			//recvfrom(ear,rip, sizeof(rip), 0 ,NULL, NULL);
 			sendto(ear, "hostname",sizeof("hostname"),0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
 			recvfrom(ear,rhostname, sizeof(rhostname), 0 ,NULL, NULL);
-			sprintf(maj,"INSERT INTO client (ip,hostname,pid,connected) VALUES (%s,%s,%d,1)",rip,rhostname,mypid);
+			sprintf(maj,"INSERT INTO client (hostname,pid,connected) VALUES (%s,%d,1)",rhostname,mypid);
 			bdd_insert(maj);
-
 
 			sprintf(buf,"[%d] Début d'échange de commande\n",pid);
 			if(mkfifo(pipeperso, S_IRUSR | S_IWRITE | S_IWGRP)==-1 && errno != EEXIST){
 				printf("Cannot make pipe\n"); 
 			}
-			while(!end){
+			while(1){
 				common=open((char *)pipeperso, O_RDONLY);
 				read(common,todo,strlen(buf));
-				//		read(common,todo[1],strlen(buf));
-				//if(strcmp(todo[1],"quit")){
-				//	end=1;
-				//}
-				//else{
 				sendto(ear, buf,BUF_SIZ,0, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
 				printf("[%d] message envoye : %s\n",pid,buf);
 				recvfrom(ear, buf,BUF_SIZ,0,NULL,NULL);
 				sprintf(maj,"INSERT INTO result (idclient,idscript,result) VALUES (%d,%d,%s)",todo[1],todo[0],buf);
 				bdd_insert(maj);
-				//}
 			}
-			printf("[%d] close sockaddr\n",pid);
-			close(ear);
-			done=1;
+
+
+
 		}
 		else if ((childpid != 0)){//pere
-		//	close(tun_serv[1]);
+			//	close(tun_serv[1]);
 			printf("[%d] have fork, the child is [%d]\n",pid,childpid);
 			demander_ordre(ordre,buf2);
 
@@ -138,6 +125,7 @@ int main(int argc, char **argv){
 		else if (childpid == -1) {
 			perror("Le fork n'a pas fonctionné");
 			exit(EXIT_FAILURE); // quitte le programme si le fork n'as pas fonctionné
+			close(ear);
 		}
 
 	}
@@ -177,14 +165,17 @@ int demander_ordre(int ordre[2],char *buf2){
 			system("clear");
 			ordre[1]=choix_client(buf2);
 			fait=1;
+			common=open(pipeperso, O_WRONLY);
+			sprintf(ord,"%d",ordre[0]);
+			write(common,ord,strlen(ord));
+			sprintf(ord,"%d",ordre[1]);
+			write(common,ord,strlen(ord));
+			close(common);
+		}
+		else{
+			fait=1;
 		}
 	}
-	common=open(pipeperso, O_WRONLY);
-	sprintf(ord,"%d",ordre[0]);
-	write(common,ord,strlen(ord));
-	sprintf(ord,"%d",ordre[1]);
-	write(common,ord,strlen(ord));
-	close(common);
-	exit(EXIT_SUCCESS);
+	return 0;
 }
 

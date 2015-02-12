@@ -12,16 +12,10 @@ int bdd_select(char *qry,char *buf){
 	unsigned int i = 0;
 	unsigned int num_champs = 0;
 	if(mysql_real_connect(&mysql,"127.0.0.1","root","athemisis","proscan",0,NULL,0)){
-		printf("mysql_qry\n");
 		mysql_query(&mysql,qry);
-		printf("mysql_use_result\n");
 		result = mysql_use_result(&mysql);
-		printf("mysql_num_fields\n");
 		num_champs = mysql_num_fields(result);
-		printf("while");
 		while((row = mysql_fetch_row(result))){
-			//unsigned long *lengths=0;
-			//lengths = mysql_fetch_lengths(result);
 			for(i=0;i< num_champs;i++){
 				sprintf(buf+strlen(buf),"%s\n",row[i]);
 			}
@@ -36,13 +30,12 @@ int bdd_select(char *qry,char *buf){
 	return 0;
 }
 
-int bdd_delete(void){
+int bdd_delete(char *qry){
 	MYSQL mysql;
 	mysql_init(&mysql);
-//	int n;
-	/*mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");*/
+	mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");
 	if(mysql_real_connect(&mysql,"127.0.0.1","proscan","","proscan",0,NULL,0)){
-//		n=mysql_affected_rows(mysql);
+		mysql_query(&mysql,qry);
 		mysql_close(&mysql);
 	}else{      
 		printf("Une erreur s'est produite lors de la connexion à la BDD!\n");
@@ -54,11 +47,9 @@ int bdd_delete(void){
 int bdd_update(char *qry){
 	MYSQL mysql;
 	mysql_init(&mysql);
-//	int n;
-	/*mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");*/
+	mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");
 	if(mysql_real_connect(&mysql,"127.0.0.1","proscan","","proscan",0,NULL,0)){
 		mysql_query(&mysql,qry);
-//		n=mysql_affected_rows(mysql);
 		mysql_close(&mysql);
 	}else{      
 		printf("Une erreur s'est produite lors de la connexion à la BDD!\n");
@@ -71,18 +62,8 @@ int bdd_insert(char *qry){
 	MYSQL mysql;
 	mysql_init(&mysql);
 	mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");
-	/*char *ip;
-	char *fd;*/
-//	my_ulonglong n;
-	
-	/*strcpy(ip,addr);
-	strcpy(fd,file_descriptor);*/
 	if(mysql_real_connect(&mysql,"127.0.0.1","root","athemisis","proscan",0,NULL,0)){
 		mysql_query(&mysql,qry);
-		//mysql_query(&mysql,"INSERT INTO client ip:port,fd VAlUES(ip,fd)");
-	//	n=mysql_affected_rows(&mysql);
-	//	printf("Nombre de colonne affecté = %d\n",n);
-
 		mysql_close(&mysql);
 	}else{      
 		printf("Une erreur s'est produite lors de la connexion à la BDD!\n");
@@ -91,57 +72,3 @@ int bdd_insert(char *qry){
 	return 0;
 }
 
-int bdd_create(void){
-	MYSQL mysql;
-	mysql_init(&mysql);
-	/*mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");*/
-	if(mysql_real_connect(&mysql,"127.0.0.1","proscan","","proscan",0,NULL,0)){
-		mysql_close(&mysql);
-	}else{
-		printf("Une erreur s'est produite lors de la connexion à la BDD!\n");
-		mysql_close(&mysql);
-	}
-	return 0;
-}
-/*
-int main(void){
-	MYSQL mysql;
-	MYSQL_RES resultat = NULL;
-	MYSQL_ROW row;
-	int n,i=1;
-	unsigned long *lengths;
-	unsigned int c = 0;
-	unsigned int num_champs = 0;
-	mysql_init(&mysql);
-	mysql_options(&mysql,MYSQL_READ_DEFAULT_GROUP,"option");
-
-	if(mysql_real_connect(&mysql,"127.0.0.1","proscan","","client",0,NULL,0)){
-
-		mysql_query(&mysql, "INSERT INTO client ip:port,fd VALUES('127.0.0.1', '12586'),('192.168.0.1','12548')");
-
-		n=mysql_affected_rows(&mysql);
-		printf("Nombre de colonne affecté = %d\n",n);
-
-		mysql_query(&mysql, "SELECT * FROM client");
-		resultat = mysql_use_result(&mysql);
-		num_champs = mysql_num_fields(resultat);
-		while ((row=mysql_fetch_row(resultat))){
-			lengths = mysql_fetch_lengths(result);
-			for(i = 0; i < num_champs; i++){
-				printf("[%.*s] ", (int) lengths[i], row[i] ? row[i] : "NULL");
-			}
-			printf("\n");
-		}
-
-		mysql_free_result(resultat);
-
-		mysql_close(&mysql);
-
-	}else{
-		printf("Une erreur s'est produite lors de la connexion à la BDD!");
-	}
-
-
-	return 0;
-}
-*/
