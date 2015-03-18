@@ -23,7 +23,7 @@ int afficher_script(char *buf2){
 }
 
 int afficher_client(char *buf2){
-	bdd_select("SELECT client.id, client.hostname, client.ip FROM client WHERE client.connected=1",buf2);
+	bdd_select("SELECT client.id, client.hostname FROM client",buf2);
 	printf("%s\n",buf2);
 	return 0;
 }
