@@ -1,0 +1,21 @@
+Le Hostname est:
+Bolverk
+
+La distribution est:
+Manjaro Linux
+
+La version de la distribution est:
+0.8.12
+
+La version du noyau est:
+Linux 3.16.7.8-1-MANJARO
+
+La table de routage est:
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         gateway         0.0.0.0         UG    600    0        0 wlp3s0
+192.168.43.0    *               255.255.255.0   U     0      0        0 wlp3s0
+192.168.43.0    *               255.255.255.0   U     600    0        0 wlp3s0
+192.168.132.0   *               255.255.255.0   U     0      0        0 vmnet1
+192.168.245.0   *               255.255.255.0   U     0      0        0 vmnet8
+Fin de l'éxécution du script

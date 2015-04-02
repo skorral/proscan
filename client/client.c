@@ -13,7 +13,6 @@
 #include <time.h>
 #include <sys/time.h>
 #include "../common/const.h"
-#include "../common/net.h"
 
 int verif( char *test){     //Cette fonction permet de vérifier la non double inscription d'un serveur dans le fichier de log
 
@@ -36,10 +35,10 @@ int verif( char *test){     //Cette fonction permet de vérifier la non double i
 }
 
 void inscription(char * ip_serveur, char * port){ //Cette fonction inscrit le serveur dans le fichier de log lors de la 1er connection
-        /*if(argc != 3){
-		printf("Usage %s ip_server port\n",argv[0]);
-		exit(EXIT_SUCCESS);
-	}*/
+	/*if(argc != 3){
+	  printf("Usage %s ip_server port\n",argv[0]);
+	  exit(EXIT_SUCCESS);
+	  }*/
 	FILE * fichier;
 	fichier = fopen("../log/client/server_log.txt","a+");
 	fputs("*****************************\n",fichier);
@@ -86,50 +85,54 @@ int main(int argc, char *argv[]) {
 	char s[128];
 	char *ip="127.0.0.1";
 	char *hostname="ubuntu";
+	char c;
 	if(argc<3){
 		printf("Usage : %s @server port_server\n",argv[0]);
 		exit(EXIT_FAILURE);
 	}
 	printf("openConnection\n");
 	inscription(argv[1], argv[2]);
-	if((sockfd = openConnection(argv[1], argv[2]))<0){
-		perror("Connection failure");
+
+
+
+	struct sockaddr_in sock;
+
+	if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+		printf("can't assign fd for socket");
+		perror("socket");
+		exit(EXIT_FAILURE);
 	}
+	memset(&sock, 0,sizeof(sock));
+	sock.sin_family = AF_INET;
+	inet_aton(argv[1], &(sock.sin_addr));
+	sock.sin_port = htons(atoi(argv[2]));
+	printf("connect\n");
+	if (connect(sockfd, (struct sockaddr*) &sock, sizeof (sock)) == -1) {
+		perror("Connection error");
+		exit(EXIT_FAILURE);
+	}
+	printf("Connection Established\n");
+
+
+
 	fd_out = fopen("client_out.txt","a+");
 	if(!fd_out){
 		printf("ERREUR: Impossible d'ouvrir le fichier: \"%s\"\n", fd_out);
 	}
 	printf("read\n");
-	recvfrom(sockfd, buf, BUF_SIZ, 0 ,NULL, NULL);
-	if(strcmp(buf,"ip")){
-		//réccuperer ip
-	//	write(sockfd,ip,128);
-		}
-	else if (strcmp(buf,"hostname")){
-	//		gethostname(hostname,sizeof(hostname));
-			write(sockfd,hostname,128);
-		}
 	while(strcmp(buf,"quit")!=0){
+		printf("Début échange de commande\n");
 		recvfrom(sockfd, buf, BUF_SIZ, 0 ,NULL, NULL); //reception de la commande
-		if(strcmp(buf,"ip")){
-			                //réccuperer ip
-	         //write(sockfd,ip,128);
-		}
-		else if (strcmp(buf,"hostname")){
-			gethostname(hostname,sizeof(hostname));
-			write(sockfd,hostname,128);
-	        }
-		else{
+		printf("1\n");
 		//printf("message recu : %s\n",buf);
 		fprintf(fd_out,"message recu : %s\n",buf);//enregistrement de la commande a executer dans le fichier de log
 		sleep(1);
 		execution_script(buf); //execution de la commande
 		resultat = fopen("resultat_script_client.txt","r"); //stockage local du resultat
-                while (fgets(s,128,resultat) != NULL) {//envoi du resultat
-	                write(sockfd,s,128);
+		while (fgets(s,128,resultat) != NULL) {//envoi du resultat
+			write(sockfd,s,128);
 		}
 		supression_fichier_resultat(); //suppression du fichier local de resulatat
-		}
 	}
 	printf("Close open fd\n");
 	fclose(fd_out);

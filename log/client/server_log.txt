@@ -234,3 +234,71 @@ Le port du serveur est : 1234
 L'adresse ip du serveur est: 127.0.0.1
 Le port du serveur est : 1234
 *****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
+*****************************
+L'adresse ip du serveur est: 127.0.0.1
+Le port du serveur est : 1234
+*****************************
