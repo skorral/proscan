@@ -1,9 +1,0 @@
-Sys. de fichiers Taille Utilisé Dispo Uti% Monté sur
-/dev/sda5          237G     87G  148G  38% /
-dev                3,9G       0  3,9G   0% /dev
-run                3,9G    868K  3,9G   1% /run
-tmpfs              3,9G    1,1M  3,9G   1% /dev/shm
-tmpfs              3,9G       0  3,9G   0% /sys/fs/cgroup
-tmpfs              3,9G     60K  3,9G   1% /tmp
-/dev/sda2          455G    428G   27G  95% /win
-tmpfs              790M    8,0K  790M   1% /run/user/1000

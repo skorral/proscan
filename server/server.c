@@ -43,7 +43,7 @@ int main(int argc, char **argv){
 	memset(buf,'\0',BUF_SIZ);
 	int done=0;
 	int ordre=0;
-	int recved=1;
+	int recved=0;
 	if(argc!=2){
 		printf("Usage : %s port_local\n", argv[0]);
 		exit(EXIT_FAILURE);
@@ -70,6 +70,7 @@ int main(int argc, char **argv){
 		printf("2\n");
 
 		while(1){
+			recved=0;
 			printf("4\n");
 			memset(buf,'\0',BUF_SIZ);
 			printf("5\n");
@@ -83,14 +84,17 @@ int main(int argc, char **argv){
 			}else{
 				printf("Message envoye : %s\n",buf);
 				memset(buf,'\0',BUF_SIZ);
-				recved=recvfrom(ear, buf,BUF_SIZ,0,NULL,NULL);
-
+				do{
+				recved+=recvfrom(ear, (char *)buf[recved],BUF_SIZ,0,NULL,NULL);
+				printf("%s",buf);
+				}while(recved%4096==0);
 				if(recved==-1){
 					perror(argv[0]);
 					exit(EXIT_FAILURE);
 				}else if(recved==0){
 					printf("no messages are available to be received\n");
 				}else{
+					printf("%s\n",buf);
 					sprintf(maj,"INSERT INTO result (idscript,result) VALUES (%d,%s)",ordre,buf);
 					bdd_insert(maj);
 				}

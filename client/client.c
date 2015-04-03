@@ -52,10 +52,12 @@ void inscription(char * ip_serveur, char * port){ //Cette fonction inscrit le se
 
 void execution_script(char *i) //Fonction permettant l'exécution de script local sur le client.
 {
-
+	
 	char *chaine;
 	chaine = calloc(512,sizeof(char));
-	sprintf(chaine,"./../script/user/script_%s.sh>resultat_script_client_%s.txt",i,i);
+	printf("fonc1\n");	
+sprintf(chaine,"./../script/user/script_%s.sh>resultat_script_client_%s.txt",i,i);
+	printf("fonc2\n");
 	system(chaine);
 }
 
@@ -78,14 +80,16 @@ void supression_fichier_resultat()  // Fonction supprimant le fichier contenant 
 
 int main(int argc, char *argv[]) {
 	int sockfd = -1;
-	char buf[BUF_SIZ];
+	char buf[BUF_SIZ], result[128];
 	FILE *fd_out;
 	FILE * resultat;
 	memset(buf, 0, BUF_SIZ);
-	char s[128];
+	char s[4096];
+	size_t tail;
 	char *ip="127.0.0.1";
 	char *hostname="ubuntu";
 	char c;
+	struct stat *info;
 	if(argc<3){
 		printf("Usage : %s @server port_server\n",argv[0]);
 		exit(EXIT_FAILURE);
@@ -121,20 +125,32 @@ int main(int argc, char *argv[]) {
 	}
 	printf("read\n");
 	while(strcmp(buf,"quit")!=0){
+
 		printf("Début échange de commande\n");
+
 		recvfrom(sockfd, buf, BUF_SIZ, 0 ,NULL, NULL); //reception de la commande
 		printf("1\n");
 		//printf("message recu : %s\n",buf);
-		fprintf(fd_out,"message recu : %s\n",buf);//enregistrement de la commande a executer dans le fichier de log
-		sleep(1);
+	////////	fprintf(resultat_script_client_1.txt"fd_out,"message recu : %s\n",buf);//enregistrement de la commande a executer dans le fichier de log
+		printf("2\n");
+	//	sleep(1);
 		execution_script(buf); //execution de la commande
-		resultat = fopen("resultat_script_client.txt","r"); //stockage local du resultat
-		while (fgets(s,128,resultat) != NULL) {//envoi du resultat
+		printf("3\n");
+		bzero(result,128);
+		sprintf(result,"resultat_script_client_%s.txt",buf);
+		resultat = fopen(result,"r"); //stockage local du resultat
+	//	fstat(resultat,info);
+	//	tail = info.st_size;
+		printf("4\n");
+	//	while (fread(s,tail,1,resultat) != NULL) {//envoi du resultat
+		while(fgets(s, 4096, resultat) != NULL){
+			printf("5\n");
 			write(sockfd,s,128);
 		}
+		printf("6\n");
 		supression_fichier_resultat(); //suppression du fichier local de resulatat
 	}
-	printf("Close open fd\n");
+	printf("Closecd open fd\n");
 	fclose(fd_out);
 	close(sockfd);
 	//printf("end of client\n");
