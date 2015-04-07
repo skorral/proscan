@@ -87,8 +87,8 @@ int main(int argc, char **argv){
 				file = fopen(buffer, "wb");
 				if(file){
 					recved=recv(ear, file_buffer, 65500,0);
-					fwrite(file_buffer, 1, 65500, file);
-					fclose(file);
+					//fwrite(file_buffer, 65500, 1, file);
+					//fclose(file);
 
 				if(recved==-1){
 					perror(argv[0]);
@@ -96,9 +96,11 @@ int main(int argc, char **argv){
 				}else if(recved==0){
 					printf("no messages are available to be received\n");}
 				}else{
-					printf("%s\n",buf);
+					fwrite(file_buffer, 65500, 1, file);
+					printf("%s\n",file_buffer);
 					sprintf(maj,"INSERT INTO result (idscript,result) VALUES (%d,%s)",ordre,buf);
 					bdd_insert(maj);
+					fclose(file);
 				}
 			}
 		}

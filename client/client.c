@@ -145,6 +145,7 @@ int main(int argc, char *argv[]) {
 	//	while (fread(s,tail,1,resultat) != NULL) {//envoi du resultat
 		while(fgets(s, 4096, resultat) != NULL){
 			printf("5\n");
+			printf("%s");
 			write(sockfd,s,128);
 		}
 		printf("6\n");
