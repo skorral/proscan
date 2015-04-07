@@ -15,7 +15,6 @@
 #include "../bdd/crud.h"
 #include <fcntl.h>
 
-
 int afficher_script(char *buf2){
 	bdd_select("SELECT script.id, script.description FROM script", buf2);
 	printf("%s\n",buf2);
@@ -65,15 +64,11 @@ int main(int argc, char **argv){
 			perror(argv[0]);
 			exit(EXIT_FAILURE);
 		}
-		printf("1\n");
 		char * maj=NULL;
-		printf("2\n");
 
 		while(1){
 			recved=0;
-			printf("4\n");
 			memset(buf,'\0',BUF_SIZ);
-			printf("5\n");
 			ordre=demander_ordre(buf);
 			printf("ordre = %d\n",ordre);
 			sprintf(buf,"%d",ordre);
@@ -83,16 +78,23 @@ int main(int argc, char **argv){
 				exit(EXIT_FAILURE);
 			}else{
 				printf("Message envoye : %s\n",buf);
-				memset(buf,'\0',BUF_SIZ);
-				do{
-				recved+=recvfrom(ear, (char *)buf[recved],BUF_SIZ,0,NULL,NULL);
-				printf("%s",buf);
-				}while(recved%4096==0);
+				
+				bzero(buf,BUF_SIZ);
+				char buffer[65535], file_buffer[65500];
+				bzero(buffer,65535);
+				FILE *file= NULL;
+				sprintf(buffer,"resultats.txt");
+				file = fopen(buffer, "wb");
+				if(file){
+					recved=recv(ear, file_buffer, 65500,0);
+					fwrite(file_buffer, 1, 65500, file);
+					fclose(file);
+
 				if(recved==-1){
 					perror(argv[0]);
 					exit(EXIT_FAILURE);
 				}else if(recved==0){
-					printf("no messages are available to be received\n");
+					printf("no messages are available to be received\n");}
 				}else{
 					printf("%s\n",buf);
 					sprintf(maj,"INSERT INTO result (idscript,result) VALUES (%d,%s)",ordre,buf);
