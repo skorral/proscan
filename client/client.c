@@ -138,7 +138,35 @@ int main(int argc, char *argv[]) {
 		printf("3\n");
 		bzero(result,128);
 		sprintf(result,"resultat_script_client_%s.txt",buf);
-		resultat = fopen(result,"r"); //stockage local du resultat
+		resultat = fopen(result,"rb");
+		if(!resultat){
+			printf("Erreur dans l'ouverture du fichier des resultat			s%s\n",result);
+			return;
+		}
+		while(!feof(resultat)){
+			int rval = fread(s, 1, sizeof(s), resultat);
+			if(rval<1)
+			{
+				printf("Impossible de lire depuis le fichier\n");
+				fclose(resultat);
+				return;
+			}
+
+			int off=0;
+			do
+			{
+				int sent =send(sockfd, &s[off], rval-off, 0);
+				if (sent<1)
+				{
+					printf("Can't write to socket\n");
+					fclose(resultat);
+					return;
+			}
+			
+		
+		}while(off<rval);}
+		fclose(resultat);	/*
+		 //stockage local du resultat
 	//	fstat(resultat,info);
 	//	tail = info.st_size;
 		printf("4\n");
@@ -150,7 +178,7 @@ int main(int argc, char *argv[]) {
 		}
 		printf("6\n");
 		supression_fichier_resultat(); //suppression du fichier local de resulatat
-	}
+	}*/}
 	printf("Closecd open fd\n");
 	fclose(fd_out);
 	close(sockfd);

@@ -85,10 +85,40 @@ int main(int argc, char **argv){
 				FILE *file= NULL;
 				sprintf(buffer,"resultats.txt");
 				file = fopen(buffer, "wb");
+				if(!file){
+					printf("Impossible d'ouvrir le fichier en mode écriture\n");
+					return;
+				}
+				
+					int rval = recv(ear, file_buffer, sizeof(file_buffer),0);
+					if(rval<0)
+					{
+						printf("Ne peux pas lire dpuis la socket\n");
+						fclose(file);
+						return;
+					}
+
+					if(rval == 0)
+						break;
+					int off = 0;
+					do
+					{
+						int written = fwrite(&file_buffer[off],1, rval -off, file);
+						if(written<1)
+						{
+							printf("Can't write to file\n");
+							fclose(file);
+							return;
+						}
+
+						off += written;
+					}while(off<rval);
+				
+				fclose(file);/*
 				if(file){
 					recved=recv(ear, file_buffer, 65500,0);
-					//fwrite(file_buffer, 65500, 1, file);
-					//fclose(file);
+					fwrite(file_buffer, 65500,1, file);
+					fclose(file);
 
 				if(recved==-1){
 					perror(argv[0]);
@@ -96,12 +126,10 @@ int main(int argc, char **argv){
 				}else if(recved==0){
 					printf("no messages are available to be received\n");}
 				}else{
-					fwrite(file_buffer, 65500, 1, file);
-					printf("%s\n",file_buffer);
+					printf("%s\n",buf);
 					sprintf(maj,"INSERT INTO result (idscript,result) VALUES (%d,%s)",ordre,buf);
 					bdd_insert(maj);
-					fclose(file);
-				}
+				}*/
 			}
 		}
 
